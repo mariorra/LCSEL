@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Mon Mar  4 10:45:54 2019
+# Process ID: 17584
+# Current directory: C:/Users/Engenieer/Documents/RX_RS232
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18048 C:\Users\Engenieer\Documents\RX_RS232\RX_RS232.xpr
+# Log file: C:/Users/Engenieer/Documents/RX_RS232/vivado.log
+# Journal file: C:/Users/Engenieer/Documents/RX_RS232\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Engenieer/Documents/RX_RS232/RX_RS232.xpr
+update_compile_order -fileset sources_1
