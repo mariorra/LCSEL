@@ -1,0 +1,1 @@
+-wto "7e7b59eb5e2b4cfca4b3c080981316d8" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "TX_RS232_tb_behav" "xil_defaultlib.TX_RS232_tb" -log "elaborate.log" 

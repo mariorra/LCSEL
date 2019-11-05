@@ -35,20 +35,20 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 
-entity RS232_TX is
+entity TX_RS232 is
     Port ( Clk : in STD_LOGIC;
                Reset : in STD_LOGIC;
                Start : in STD_LOGIC;
                Data : in STD_LOGIC_VECTOR (7 downto 0);
                EOT : out STD_LOGIC;
                TX : out STD_LOGIC);
-end RS232_TX;
+end TX_RS232;
 
-architecture Behavioral of RS232_TX is
+architecture Behavioral of TX_RS232 is
     --FSM definida en el guion
-    TYPE estados IS (idle, Start_Bit, Send_Data,Stop_Bit);
+    TYPE estados IS (Idle, Start_Bit, Send_Data,Stop_Bit);
     --variables de estado 
-	SIGNAL s_current_state, s_next_state: estados;
+	SIGNAL s_TX_current_state, s_TX_next_state: estados;
 
 
  --------------
@@ -66,13 +66,15 @@ architecture Behavioral of RS232_TX is
    -- VARIABLES --
    ---------------
    --señal de salida y señal de transmision
-    SIGNAL s_TX_Salida, s_finalized_transmission: std_logic;
+    SIGNAL s_TX_aux, s_EOT_aux: std_logic:='0';
     --contador de ancho del bit
-    SIGNAL s_pulse_width: STD_LOGIC_vector(7 downto 0);
+    SIGNAL s_pulse_width: STD_LOGIC_vector(7 downto 0) :="00000000" ;
     --contador de datos se envian
-    --SIGNAL s_dataCount: integer := 0 ;
-    SIGNAL s_dataCount: integer := 7 ;
-    
+    --SIGNAL s_TX_dataCount: integer := 0 ;
+    signal s_TX_dataCount:  integer := 0;
+    --signal s_TX_dataCount:  STD_LOGIC_vector(2 downto 0) := "000";
+    --signal s_Data_aux: STD_LOGIC_VECTOR (7 downto 0):="10101010";
+    signal datacount_number : integer := 0 ;
   --#############################################
   --#############################################
   --#############################################
@@ -80,96 +82,134 @@ architecture Behavioral of RS232_TX is
    
   begin
   -- identificar el estado actual conforme a las entradas y salidas
-    PROCESS (reset, clk, s_current_state, s_pulse_width)
-
+  RELOJ: PROCESS (Reset, Clk, s_TX_current_state, s_pulse_width,s_TX_aux,s_EOT_aux)
     begin
-        if(reset = '0') then
-        
-            --momento inicial de la recepcion de datos
-            --se resetean las variables para tener los datos inicializados a 0
-            s_current_state <= idle;
-            s_pulse_width <= "00000000";
-                                 
-        elsif clk'event AND clk='1' then 
-                             
-            -- si no se esta en idle se compara con los 174 clicks de reloj para conocer si ha completado el momento de 1bit de dato
-              if s_current_state /= idle and s_pulse_width = "10101110" then 
-                            s_pulse_width <= "00000000";
-              else
-                            s_pulse_width <= s_pulse_width + 1;
-              end if;
-        end if;
-    END PROCESS;
-    
-    --#############################################
-    --#############################################
-    --#############################################
-    
+      if(Reset = '0') then
+        --se resetean las variables para tener los datos inicializados a 0
+        s_TX_current_state <= Idle;
+        s_pulse_width <= "00000000";
+        s_TX_dataCount <= 0;
+        EOT <= '0';
+        TX <= '0';
+      elsif rising_edge(Clk) then 
+        EOT <= s_EOT_aux;
+        TX <= s_TX_aux;     
 
-   --genera los siguiente estados:
+        s_TX_current_state <=  s_TX_next_state;                        
+        -- si no se esta en Idle se compara con los 174 clicks de reloj para conocer si ha completado el momento de 1bit de dato
+        if s_TX_next_state /= Idle then
+          if s_pulse_width = "10101110" then 
+            s_pulse_width <= "00000000";
+          else
+            s_pulse_width <= s_pulse_width + 1;
+          end if;
+        end if;
+
+        if s_TX_next_state = Idle then
+          s_pulse_width<="00000000";
+          s_TX_dataCount <= 0;
+        end if;
+
+        if s_TX_current_state = Send_Data  and s_pulse_width =  bitcounter THEN 
+            if s_TX_dataCount >= 0 then
+            s_TX_dataCount<=s_TX_dataCount+1;
+            else 
+            s_TX_dataCount <= 0;
+            end if;
+          
+          end if;
+        end if;
+    END PROCESS  RELOJ;
+      
+      --#############################################
+      --#############################################
+      --#############################################
+      
+
+     --genera los siguiente estados:
     
    
-    PROCESS(s_current_state, s_pulse_width , s_next_state )
+  FSM: PROCESS(Clk,s_TX_current_state, s_pulse_width , s_TX_next_state )
     begin
-        
-        s_next_state <= s_current_state;  
-    
-        CASE s_current_state IS
+      --s_TX_next_state <= s_TX_current_state;  
+      CASE s_TX_current_state IS
                
-            WHEN idle => -- dado que la transmision de datos comienza con el bit de start a nivel logico 1 se busca ese valor. 
-                    
-                    TX <= '1';
-                    EOT <= '1';
+        WHEN Idle => -- dado que la transmision de datos comienza con el bit de start a nivel logico 1 se busca ese valor. 
+          if START = '1' and Reset='1' THEN
+            s_TX_next_state <= Start_Bit;
+          else 
+            s_TX_next_state <= Idle;
+          end if;
+              -----------------------------------------------------  
 
-                    IF (start = '1') THEN
-                    -- en caso de llegada del nivel logico 0 del start se pasa de idle a start bit
-                        s_next_state <= Start_Bit;
-                    else 
-                       s_next_state <= Idle;
-                    END IF;
-            
-            -----------------------------------------------------  
+        WHEN Start_Bit =>-- se busca los 87 click de reloj para muestrear el valor del dato que se debe enviar 
+          if START = '0'  THEN
+            s_TX_next_state <= Idle;
+          elsif s_pulse_width =  Bitcounter then
+            s_TX_next_state <= Send_Data;
+          else 
+            s_TX_next_state <= Start_Bit;
+          end if;
+              -----------------------------------------------------      
 
-             WHEN Start_Bit =>-- se busca los 87 click de reloj para muestrear el valor del dato que se debe enviar 
-                    TX <= '0';--el bit de comienzo es 0
-                    EOT <= '0';
-                    If (s_pulse_width >=  Halfbitcounter) then 
-                      -- de alcanzar 87 cliks de reloj se pasa al estado de envio del dato
-                      s_next_state <= Send_Data;
-                      else
-                      s_next_state <= Start_Bit;
-                    end if;
+        WHEN Send_Data=>
+          if s_TX_dataCount = 7 and s_pulse_width =  bitcounter then   
+            s_TX_next_state <= Stop_Bit;
+          elsif START = '0'then
+            s_TX_next_state <= Idle;
+          else
+            s_TX_next_state <= Send_Data;
+          end if;
+               -----------------------------------------------------      
+
+        WHEN Stop_Bit=>
+          if s_pulse_width =  Bitcounter OR START = '0' then
+            s_TX_next_state <= Idle;
+          end if;
+          if START = '0'then
+            s_TX_next_state <= Idle;
+          end if;
+    
+      END CASE;
+  END PROCESS FSM;
+
+  OUTPUTS: process(Clk,s_TX_current_state,s_TX_dataCount,Data,datacount_number)
+    begin
+      CASE s_TX_current_state IS
+               
+        WHEN Idle =>
+          s_EOT_aux<='0';
+          s_TX_aux<='0';
+
+                    -----------------------------------------------------       
         
-            -----------------------------------------------------      
+        WHEN Start_Bit =>
+          s_EOT_aux<='0';
+          s_TX_aux<='0';
 
-            WHEN Send_Data=>
+                    -----------------------------------------------------  
+                
+        WHEN Send_Data =>
 
-                   EOT <= '0';
-                   IF (s_pulse_width >= Bitcounter) THEN
-                        --If (s_dataCount = 7) then
-                        If (s_dataCount = 0) then
-                           s_next_state <= Stop_Bit;
-                                                                       
-                        else      
-                          TX <= Data(s_dataCount);
-                          --s_dataCount <= s_dataCount + 1;          
-                          s_dataCount <= s_dataCount - 1;                
-                          s_next_state <= Send_Data;
-                        end if;
-                   end if;
-             -----------------------------------------------------      
+          if s_TX_dataCount = 7 and s_pulse_width =  bitcounter then
+            s_EOT_aux<='1';
+          else
+            s_EOT_aux<='0';
+            s_TX_aux<= Data(s_TX_dataCount);
+          end if;
 
-             WHEN Stop_Bit=>
-                    
-                    If (s_pulse_width >=  "00000001") then
-                    s_next_state <= Idle;
-                    end if;
-                    IF (s_dataCount = 0) THEN 
-                        s_dataCount <= 7;
-                    END IF; 
-                    TX <= '1';
-                    EOT <= '1';
-        END CASE;
-    END PROCESS;
+                    -----------------------------------------------------       
+                
+        WHEN Stop_Bit =>
+        if (s_pulse_width =  bitcounter OR START ='0') THEN
+          s_EOT_aux<='0';
+          s_TX_aux<='0';
+        else
+          s_EOT_aux<='1';
+          s_TX_aux<='0';
+        end if;
+  
+      end CASE;
+  end process OUTPUTS;
 
 end Behavioral;
