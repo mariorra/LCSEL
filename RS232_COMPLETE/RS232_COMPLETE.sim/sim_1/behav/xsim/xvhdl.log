@@ -1,0 +1,37 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engineer/Documents/LCSE/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/fifo/fifo_sim_netlist.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'fifo_blk_mem_gen_prim_wrapper'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_rd_bin_cntr'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_rd_fwft'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_rd_status_flags_ss'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_wr_bin_cntr'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_wr_status_flags_ss'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_blk_mem_gen_prim_width'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_rd_logic'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_wr_logic'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_blk_mem_gen_generic_cstr'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_blk_mem_gen_top'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_blk_mem_gen_v8_4_2_synth'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_blk_mem_gen_v8_4_2'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_memory'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_fifo_generator_ramfifo'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_fifo_generator_top'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_fifo_generator_v13_2_3_synth'
+INFO: [VRFC 10-3107] analyzing entity 'fifo_fifo_generator_v13_2_3'
+INFO: [VRFC 10-3107] analyzing entity 'fifo'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engineer/Documents/LCSE/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen/Clk_Gen_sim_netlist.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Clk_Gen_Clk_Gen_clk_wiz'
+INFO: [VRFC 10-3107] analyzing entity 'Clk_Gen'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engineer/Documents/LCSE/LCSEL/RS232top.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'RS232top'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engineer/Documents/LCSE/LCSEL/RX_RS232/RX_RS232.srcs/sources_1/new/RX_RS232.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'RX_RS232'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engineer/Documents/LCSE/LCSEL/ShiftRegister/ShiftRegister/ShiftRegister.srcs/sources_1/new/ShiftRegister.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ShiftRegister'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engineer/Documents/LCSE/LCSEL/TX_RS232/TX_RS232.srcs/sources_1/new/TX_RS232.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'TX_RS232'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engineer/Documents/LCSE/LCSEL/tb_RS232top.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'RS232top_TB'
+ERROR: [VRFC 10-2989] 'std_logic' is not declared [C:/Users/Engineer/Documents/LCSE/LCSEL/tb_RS232top.vhd:16]
+ERROR: [VRFC 10-2989] 'std_logic_vector' is not declared [C:/Users/Engineer/Documents/LCSE/LCSEL/tb_RS232top.vhd:17]
+ERROR: [VRFC 10-3782] unit 'rs232_test' ignored due to previous errors [C:/Users/Engineer/Documents/LCSE/LCSEL/tb_RS232top.vhd:10]
+INFO: [VRFC 10-3070] VHDL file 'C:/Users/Engineer/Documents/LCSE/LCSEL/tb_RS232top.vhd' ignored due to errors

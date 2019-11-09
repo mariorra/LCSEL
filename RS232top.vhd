@@ -35,8 +35,8 @@ architecture RTL of RS232top is
     port (
       reset     : in  std_logic;
       clk_in1   : in  std_logic;
-      clk_out1  : out  std_logic;
-      locked    : out std_logic);
+      clk_out1  : out  std_logic);
+      --locked    : out std_logic);
   end component;
   
  ------------------------------------------------------------------------
@@ -110,8 +110,8 @@ begin  -- RTL
     port map (
       reset    => reset_p,   
       clk_in1  => Clk100MHz,
-      clk_out1 => Clk,
-      locked   => open);
+      clk_out1 => Clk);
+      --locked   => open);
 
   Transmitter: TX_RS232
     port map (

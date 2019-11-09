@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=C:/Xilinx/SDK/2018.3/bin;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2018.3/bin
+  PATH=D:/SDK/2018.3/bin;D:/Vivado/2018.3/ids_lite/ISE/bin/nt64;D:/Vivado/2018.3/ids_lite/ISE/lib/nt64:D:/Vivado/2018.3/bin
 else
-  PATH=C:/Xilinx/SDK/2018.3/bin;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2018.3/bin:$PATH
+  PATH=D:/SDK/2018.3/bin;D:/Vivado/2018.3/ids_lite/ISE/bin/nt64;D:/Vivado/2018.3/ids_lite/ISE/lib/nt64:D:/Vivado/2018.3/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.runs/impl_1'
+HD_PWD='C:/Users/Engineer/Documents/LCSE/LCSEL/RS232_COMPLETE/RS232_COMPLETE.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -42,6 +42,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log RS232top_TB.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source RS232top_TB.tcl -notrace
+EAStep vivado -log RS232top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source RS232top.tcl -notrace
 
 
