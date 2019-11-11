@@ -12,7 +12,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity clk_wiz_0 is
+entity Clk_Gen is
   Port ( 
     clk_out1 : out STD_LOGIC;
     reset : in STD_LOGIC;
@@ -20,9 +20,9 @@ entity clk_wiz_0 is
     clk_in1 : in STD_LOGIC
   );
 
-end clk_wiz_0;
+end Clk_Gen;
 
-architecture stub of clk_wiz_0 is
+architecture stub of Clk_Gen is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;

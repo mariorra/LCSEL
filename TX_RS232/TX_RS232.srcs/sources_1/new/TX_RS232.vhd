@@ -78,8 +78,8 @@ architecture Behavioral of TX_RS232 is
   --#############################################
   --#############################################
   --#############################################
-     
-   
+          
+           
   begin
   -- identificar el estado actual conforme a las entradas y salidas
   RELOJ: PROCESS (Reset, Clk, s_TX_current_state, s_pulse_width,s_TX_aux,s_EOT_aux)
@@ -89,8 +89,8 @@ architecture Behavioral of TX_RS232 is
         s_TX_current_state <= Idle;
         s_pulse_width <= "00000000";
         s_TX_dataCount <= 0;
-        EOT <= '0';
-        TX <= '0';
+        EOT <= '1';
+        TX <= '1';
       elsif rising_edge(Clk) then 
         EOT <= s_EOT_aux;
         TX <= s_TX_aux;     
@@ -143,10 +143,10 @@ architecture Behavioral of TX_RS232 is
               -----------------------------------------------------  
 
         WHEN Start_Bit =>-- se busca los 87 click de reloj para muestrear el valor del dato que se debe enviar 
-          if START = '0'  THEN
-            s_TX_next_state <= Idle;
-          elsif s_pulse_width =  Bitcounter then
-            s_TX_next_state <= Send_Data;
+         -- if START = '0'  THEN
+         --   s_TX_next_state <= Idle;
+          if s_pulse_width =  Bitcounter then
+           s_TX_next_state <= Send_Data;
           else 
             s_TX_next_state <= Start_Bit;
           end if;
@@ -155,31 +155,35 @@ architecture Behavioral of TX_RS232 is
         WHEN Send_Data=>
           if s_TX_dataCount = 7 and s_pulse_width =  bitcounter then   
             s_TX_next_state <= Stop_Bit;
-          elsif START = '0'then
-            s_TX_next_state <= Idle;
+         -- elsif START = '0'then
+          --  s_TX_next_state <= Idle;
           else
             s_TX_next_state <= Send_Data;
           end if;
                -----------------------------------------------------      
 
         WHEN Stop_Bit=>
-          if s_pulse_width =  Bitcounter OR START = '0' then
+          if s_pulse_width =  Bitcounter then  --AND START = '0' then
             s_TX_next_state <= Idle;
+          else 
+           s_TX_next_state <= Stop_Bit;
           end if;
-          if START = '0'then
-            s_TX_next_state <= Idle;
-          end if;
+         -- if START = '0'then
+          --  s_TX_next_state <= Idle;
+         -- end if;
     
       END CASE;
   END PROCESS FSM;
+  
 
+           
   OUTPUTS: process(Clk,s_TX_current_state,s_TX_dataCount,Data,datacount_number)
     begin
       CASE s_TX_current_state IS
                
         WHEN Idle =>
           s_EOT_aux<='0';
-          s_TX_aux<='0';
+          s_TX_aux<='1';
 
                     -----------------------------------------------------       
         
@@ -195,18 +199,17 @@ architecture Behavioral of TX_RS232 is
             s_EOT_aux<='1';
           else
             s_EOT_aux<='0';
-            s_TX_aux<= Data(s_TX_dataCount);
+          s_TX_aux<= Data(s_TX_dataCount);
           end if;
 
                     -----------------------------------------------------       
                 
         WHEN Stop_Bit =>
-        if (s_pulse_width =  bitcounter OR START ='0') THEN
+        s_TX_aux<='1';
+        if (s_pulse_width =  bitcounter) THEN
           s_EOT_aux<='0';
-          s_TX_aux<='0';
         else
           s_EOT_aux<='1';
-          s_TX_aux<='0';
         end if;
   
       end CASE;

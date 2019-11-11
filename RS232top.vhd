@@ -31,12 +31,12 @@ architecture RTL of RS232top is
 
   signal Clk, reset_p    : std_logic;
 
-  component Clk_Gen
+  component Clk_gen
     port (
       reset     : in  std_logic;
       clk_in1   : in  std_logic;
       clk_out1  : out  std_logic);
-      --locked    : out std_logic);
+     -- locked    : out std_logic);
   end component;
   
  ------------------------------------------------------------------------
@@ -106,12 +106,12 @@ begin  -- RTL
 
   reset_p <= not(Reset);		  -- active high reset
   
-  Clock_generator : Clk_Gen
+  Clock_generator : Clk_gen
     port map (
       reset    => reset_p,   
       clk_in1  => Clk100MHz,
       clk_out1 => Clk);
-      --locked   => open);
+    --  locked   => open);
 
   Transmitter: TX_RS232
     port map (
@@ -155,12 +155,19 @@ begin  -- RTL
   -- purpose: Clocking process for input protocol
   Clocking : process (Clk, Reset)
   begin
+  
     if Reset = '0' then  -- asynchronous reset (active low)
       Data_FF   <= (others => '0');
       LineRD_in <= '1';
       Ack_in    <= '1';
+      StartTX <= '0';
+     
     elsif Clk'event and Clk = '1' then  -- rising edge clock
       LineRD_in <= RD;
+      Data_FF<= Data_in;
+      TX_RDY <= TX_RDY_i;
+       
+      --ESTA TRANSICIOn hace que solo se use RX o TX
       if Valid_D = '0' and TX_RDY_i = '1' then
         Data_FF <= Data_in;
         Ack_in  <= '0';
@@ -170,9 +177,10 @@ begin  -- RTL
         StartTX <= '0';
       end if;
     end if;
+    
   end process Clocking;
 
-  TX_RDY <= TX_RDY_i;
+--  TX_RDY <= TX_RDY_i;
 
 end RTL;
 

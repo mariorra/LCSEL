@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="Clk_Gen_synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1573229434">
+<GenRun Id="Clk_Gen_synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1573304477">
   <File Type="PA-TCL" Name="Clk_Gen.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="Clk_Gen_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Clk_Gen_reports.tcl"/>
@@ -10,7 +10,7 @@
   <File Type="VDS-TIMINGSUMMARY" Name="Clk_Gen_timing_summary_synth.rpt"/>
   <File Type="VDS-TIMING-PB" Name="Clk_Gen_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Clk_Gen">
-    <File Path="$PSRCDIR/sources_1/ip/Clk_Gen/Clk_Gen.xci">
+    <File Path="$PSRCDIR/sources_1/ip/Clk_Gen_1/Clk_Gen.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -23,7 +23,7 @@
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Clk_Gen">
-    <File Path="$PSRCDIR/sources_1/ip/Clk_Gen/Clk_Gen.xci">
+    <File Path="$PSRCDIR/sources_1/ip/Clk_Gen_1/Clk_Gen.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

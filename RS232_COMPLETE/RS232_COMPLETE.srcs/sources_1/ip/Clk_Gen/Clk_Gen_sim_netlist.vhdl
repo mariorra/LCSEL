@@ -1,11 +1,11 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Fri Nov  8 17:11:25 2019
--- Host        : Engineer-PC running 64-bit Service Pack 1  (build 7601)
+-- Date        : Sat Nov  9 13:46:08 2019
+-- Host        : Engineer running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               c:/Users/Engineer/Documents/LCSE/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen/Clk_Gen_sim_netlist.vhdl
--- Design      : Clk_Gen
+--               c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_gen/Clk_gen_sim_netlist.vhdl
+-- Design      : Clk_gen
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7a200tfbg676-2
@@ -14,21 +14,21 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity Clk_Gen_Clk_Gen_clk_wiz is
+entity Clk_gen_Clk_gen_clk_wiz is
   port (
     clk_out1 : out STD_LOGIC;
     reset : in STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Clk_Gen_Clk_Gen_clk_wiz : entity is "Clk_Gen_clk_wiz";
-end Clk_Gen_Clk_Gen_clk_wiz;
+  attribute ORIG_REF_NAME of Clk_gen_Clk_gen_clk_wiz : entity is "Clk_gen_clk_wiz";
+end Clk_gen_Clk_gen_clk_wiz;
 
-architecture STRUCTURE of Clk_Gen_Clk_Gen_clk_wiz is
-  signal clk_in1_Clk_Gen : STD_LOGIC;
-  signal clk_out1_Clk_Gen : STD_LOGIC;
-  signal clkfbout_Clk_Gen : STD_LOGIC;
-  signal clkfbout_buf_Clk_Gen : STD_LOGIC;
+architecture STRUCTURE of Clk_gen_Clk_gen_clk_wiz is
+  signal clk_in1_Clk_gen : STD_LOGIC;
+  signal clk_out1_Clk_gen : STD_LOGIC;
+  signal clkfbout_Clk_gen : STD_LOGIC;
+  signal clkfbout_buf_Clk_gen : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED : STD_LOGIC;
@@ -60,8 +60,8 @@ architecture STRUCTURE of Clk_Gen_Clk_Gen_clk_wiz is
 begin
 clkf_buf: unisim.vcomponents.BUFG
      port map (
-      I => clkfbout_Clk_Gen,
-      O => clkfbout_buf_Clk_Gen
+      I => clkfbout_Clk_gen,
+      O => clkfbout_buf_Clk_gen
     );
 clkin1_ibufg: unisim.vcomponents.IBUF
     generic map(
@@ -69,11 +69,11 @@ clkin1_ibufg: unisim.vcomponents.IBUF
     )
         port map (
       I => clk_in1,
-      O => clk_in1_Clk_Gen
+      O => clk_in1_Clk_gen
     );
 clkout1_buf: unisim.vcomponents.BUFG
      port map (
-      I => clk_out1_Clk_Gen,
+      I => clk_out1_Clk_gen,
       O => clk_out1
     );
 mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
@@ -128,15 +128,15 @@ mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
       STARTUP_WAIT => false
     )
         port map (
-      CLKFBIN => clkfbout_buf_Clk_Gen,
-      CLKFBOUT => clkfbout_Clk_Gen,
+      CLKFBIN => clkfbout_buf_Clk_gen,
+      CLKFBOUT => clkfbout_Clk_gen,
       CLKFBOUTB => NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED,
       CLKFBSTOPPED => NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED,
-      CLKIN1 => clk_in1_Clk_Gen,
+      CLKIN1 => clk_in1_Clk_gen,
       CLKIN2 => '0',
       CLKINSEL => '1',
       CLKINSTOPPED => NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED,
-      CLKOUT0 => clk_out1_Clk_Gen,
+      CLKOUT0 => clk_out1_Clk_gen,
       CLKOUT0B => NLW_mmcm_adv_inst_CLKOUT0B_UNCONNECTED,
       CLKOUT1 => NLW_mmcm_adv_inst_CLKOUT1_UNCONNECTED,
       CLKOUT1B => NLW_mmcm_adv_inst_CLKOUT1B_UNCONNECTED,
@@ -167,19 +167,19 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity Clk_Gen is
+entity Clk_gen is
   port (
     clk_out1 : out STD_LOGIC;
     reset : in STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
-  attribute NotValidForBitStream of Clk_Gen : entity is true;
-end Clk_Gen;
+  attribute NotValidForBitStream of Clk_gen : entity is true;
+end Clk_gen;
 
-architecture STRUCTURE of Clk_Gen is
+architecture STRUCTURE of Clk_gen is
 begin
-inst: entity work.Clk_Gen_Clk_Gen_clk_wiz
+inst: entity work.Clk_gen_Clk_gen_clk_wiz
      port map (
       clk_in1 => clk_in1,
       clk_out1 => clk_out1,

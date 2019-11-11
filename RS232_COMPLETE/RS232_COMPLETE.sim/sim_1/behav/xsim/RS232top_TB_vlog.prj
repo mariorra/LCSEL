@@ -1,4 +1,16 @@
 # compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen_1" \
+"../../../../../CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/xsim/glbl.v" \
+"../../../../../CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/xcelium/glbl.v" \
+"../../../../../CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/modelsim/glbl.v" \
+"../../../../../CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/questa/glbl.v" \
+"../../../../../CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/riviera/glbl.v" \
+"../../../../../CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/clk_wiz_0/xsim/glbl.v" \
+"../../../../../CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/clk_wiz_0/xcelium/glbl.v" \
+"../../../../../CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/activehdl/glbl.v" \
+"../../../../../CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/clk_wiz_0/vcs/glbl.v" \
+"../../../../../CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/ies/glbl.v" \
+"../../../../../CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/vcs/glbl.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

@@ -65,7 +65,7 @@
 
 -- The following code must appear in the VHDL architecture header:
 ------------- Begin Cut here for COMPONENT Declaration ------ COMP_TAG
-component Clk_Gen
+component Clk_gen
 port
  (-- Clock in ports
   -- Clock out ports
@@ -80,7 +80,7 @@ end component;
 -- The following code must appear in the VHDL architecture
 -- body. Substitute your own instance name and net names.
 ------------- Begin Cut here for INSTANTIATION Template ----- INST_TAG
-your_instance_name : Clk_Gen
+your_instance_name : Clk_gen
    port map ( 
   -- Clock out ports  
    clk_out1 => clk_out1,
