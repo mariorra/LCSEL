@@ -35,15 +35,15 @@ architecture RTL of RS232top is
     port (
       reset     : in  std_logic;
       clk_in1   : in  std_logic;
-      clk_out1  : out  std_logic;
-      locked    : out std_logic);
+      clk_out1  : out  std_logic);
+      --locked    : out std_logic);
   end component;
   
  ------------------------------------------------------------------------
   -- Components for Transmitter Block
   ------------------------------------------------------------------------
 
-  component RS232_TX
+  component TX_RS232
     port (
       Clk   : in  std_logic;
       Reset : in  std_logic;
@@ -66,7 +66,7 @@ architecture RTL of RS232top is
       Q      : out std_logic_vector(7 downto 0));
   end component;
 
-  component RS232_RX
+  component RX_RS232
     port (
       Clk       : in  std_logic;
       Reset     : in  std_logic;
@@ -110,10 +110,10 @@ begin  -- RTL
     port map (
       reset    => reset_p,   
       clk_in1  => Clk100MHz,
-      clk_out1 => Clk,
-      locked   => open);
+      clk_out1 => Clk);
+      --locked   => open);
 
-  Transmitter: RS232_TX
+  Transmitter: TX_RS232
     port map (
       Clk   => Clk,
       Reset => Reset,
@@ -122,7 +122,7 @@ begin  -- RTL
       EOT   => TX_RDY_i,
       TX    => TD);
 
-  Receiver: RS232_RX
+  Receiver: RX_RS232
     port map (
       Clk       => Clk,
       Reset     => Reset,
