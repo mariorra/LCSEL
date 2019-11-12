@@ -61,11 +61,13 @@ begin
     Data_in <= "11100010";
     Valid_D <= '0'; 
     reset <= '0', '1' after 75 ns;
-    wait for 20 us;
+    wait for 10 us;
+    Valid_D <= '1'; 
+    wait until Ack_in='0';
+   -- Valid_D <= '1'; 
     Data_in <= "00011100";
-    Valid_D <= '1' ,'0' after 5 us;  
     wait for 20 us;    
-    reset <= '0', '1' after 20us;
+   -- reset <= '0', '1' after 20us;
     Valid_D <= '0'; 
     Data_in <= "01100011";
     wait for 50 us;

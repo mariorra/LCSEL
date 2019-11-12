@@ -131,7 +131,7 @@ architecture Behavioral of TX_RS232 is
       CASE s_TX_current_state IS
                
         WHEN Idle => -- dado que la transmision de datos comienza con el bit de start a nivel logico 1 se busca ese valor. 
-          if START = '0' and Reset='1' THEN
+          if START = '1' and Reset='1' THEN
             s_TX_next_state <= Start_Bit;
           else 
             s_TX_next_state <= Idle;
@@ -176,8 +176,8 @@ architecture Behavioral of TX_RS232 is
                
         WHEN Idle =>
         s_TX_aux<='1';
-        --tras reset
-        s_EOT_aux<='0';
+
+        s_EOT_aux<='1';
         
                     -----------------------------------------------------       
         
@@ -189,20 +189,20 @@ architecture Behavioral of TX_RS232 is
                 
         WHEN Send_Data =>
           s_EOT_aux<='0';
-          if s_TX_dataCount = 7 and s_pulse_width =  bitcounter then
-          s_EOT_aux<='1';
-          else
-          s_EOT_aux<='0';
+          --if s_TX_dataCount = 7 and s_pulse_width =  bitcounter then
+          --s_EOT_aux<='1';
+         -- else
+         -- s_EOT_aux<='0';
           s_TX_aux<= Data(s_TX_dataCount);
-          end if;
+         -- end if;
 
                     -----------------------------------------------------       
                 
         WHEN Stop_Bit =>
         s_TX_aux<='1';
-        if (s_pulse_width =  bitcounter) THEN
-        s_EOT_aux<='1';
-        end if;
+        --if (s_pulse_width =  bitcounter) THEN
+        s_EOT_aux<='0';
+       -- end if;
   
       end CASE;
   end process OUTPUTS;
