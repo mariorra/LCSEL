@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1573304644">
   <File Type="PA-TCL" Name="RS232top.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="RS232top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="RS232top_reports.tcl"/>
   <File Type="RDS-RDS" Name="RS232top.vds"/>
   <File Type="RDS-UTIL" Name="RS232top_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="RS232top_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="RS232top.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="RS232top_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="RS232top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/ip/fifo_1/fifo.xci">
@@ -156,9 +153,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="Clk_Gen"/>

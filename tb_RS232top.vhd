@@ -23,6 +23,7 @@ architecture Testbench of RS232top_TB is
       Data_read : in  std_logic;
       Full      : out std_logic;
       Empty     : out std_logic);
+      
   end component;
   
   signal Reset, Clk, Valid_D, Ack_in, TX_RDY : std_logic;
@@ -47,7 +48,7 @@ begin
       Full      => Full,
       Empty     => Empty);
 
-  Data_in <= "11100010";
+  --Data_in <= "11100010";
    -- Clock generator
   p_clk : PROCESS
   BEGIN
@@ -57,15 +58,19 @@ begin
   
  p_tx : PROCESS
   BEGIN    
+    Data_in <= "11100010";
     Valid_D <= '0'; 
     reset <= '0', '1' after 75 ns;
-   wait for 20 us;
-    Valid_D <= '1';  
     wait for 20 us;
+    Data_in <= "00011100";
+    Valid_D <= '1' ,'0' after 5 us;  
+    wait for 20 us;    
+    reset <= '0', '1' after 20us;
     Valid_D <= '0'; 
-    wait for 20 us;
+    Data_in <= "01100011";
+    wait for 50 us;
      Valid_D <= '1';  
-    wait for 20 us;
+    wait for 30 us;
    -- TD<='0', '1' after 75 ns;
     
     --Transmit(TD,Data_in);

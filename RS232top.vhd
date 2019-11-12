@@ -164,8 +164,8 @@ begin  -- RTL
      
     elsif Clk'event and Clk = '1' then  -- rising edge clock
       LineRD_in <= RD;
-      Data_FF<= Data_in;
-      TX_RDY <= TX_RDY_i;
+      --Data_FF<= Data_in;
+      --TX_RDY <= TX_RDY_i;
        
       --ESTA TRANSICIOn hace que solo se use RX o TX
       if Valid_D = '0' and TX_RDY_i = '1' then
@@ -180,7 +180,7 @@ begin  -- RTL
     
   end process Clocking;
 
---  TX_RDY <= TX_RDY_i;
+  TX_RDY <= TX_RDY_i;
 
 end RTL;
 
