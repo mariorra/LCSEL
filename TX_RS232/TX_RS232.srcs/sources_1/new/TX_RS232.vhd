@@ -51,7 +51,7 @@ architecture Behavioral of TX_RS232 is
 	SIGNAL s_TX_current_state, s_TX_next_state: estados;
 
 
- --------------
+    --------------
 	--CONSTANTES--
 	--------------
         -- contador del numero de clicks de reloj(87 clicks de reloj) para comparar la llegada del dato

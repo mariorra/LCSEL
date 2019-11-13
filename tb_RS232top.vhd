@@ -58,22 +58,53 @@ begin
   
  p_tx : PROCESS
   BEGIN    
-    Data_in <= "11100010";
+    
     Valid_D <= '0'; 
-    reset <= '0', '1' after 75 ns;
-    wait for 10 us;
-    Valid_D <= '1'; 
+    reset <= '0', '1' after 5 us;
+    Data_in <= "00000000";
+    ----------------------------------------------------------
+    --secuencia con la que se desactiva el envio ciclico
     wait until Ack_in='0';
-   -- Valid_D <= '1'; 
-    Data_in <= "00011100";
-    wait for 20 us;    
-   -- reset <= '0', '1' after 20us;
-    Valid_D <= '0'; 
-    Data_in <= "01100011";
-    wait for 50 us;
-     Valid_D <= '1';  
-    wait for 30 us;
-   -- TD<='0', '1' after 75 ns;
+    wait for 5 us;
+    Valid_D <= '1';
+    wait for 20 us;
+    Valid_D <= '0';
+    wait until Ack_in='0';
+    ----------------------------------------------------------
+    Data_in <= "11100010"; 
+    wait for 5 us;
+    Valid_D <= '1';
+    wait for 20 us;
+    Valid_D <= '0';
+    wait until Ack_in='0';
+    
+    Data_in <= "00001100"; 
+    wait for 5 us;
+    Valid_D <= '1';
+
+    wait for 20 us;
+    Valid_D <= '0';
+    wait until Ack_in='0';
+    
+    reset <= '0', '1' after 35 us;
+    wait until Ack_in='0';
+        
+    Data_in <= "11111111"; 
+    wait for 5 us;
+    Valid_D <= '1';
+    wait for 20 us;
+    Valid_D <= '0';
+    wait until Ack_in='0';
+    
+    
+    
+    Data_in <= "10101010"; 
+    wait for 5 us;
+    Valid_D <= '1';
+    wait for 20 us;
+    Valid_D <= '0';
+    --wait until Ack_in='0';
+    
     
     --Transmit(TD,Data_in);
     --wait for 20 us; 
