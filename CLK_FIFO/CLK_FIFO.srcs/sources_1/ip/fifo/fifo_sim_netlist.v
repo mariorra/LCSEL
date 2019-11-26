@@ -1,18 +1,18 @@
-// Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+// Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Sat Mar  2 14:06:43 2019
+// Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+// Date        : Sun Nov 17 23:50:39 2019
 // Host        : Engineer running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               c:/Users/Engenieer/Documents/CLK_FIFO/CLK_FIFO.srcs/sources_1/ip/fifo/fifo_sim_netlist.v
+//               C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/CLK_FIFO/CLK_FIFO.srcs/sources_1/ip/fifo/fifo_sim_netlist.v
 // Design      : fifo
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
-// Device      : xc7a50tcsg324-1
+// Device      : xc7a100tcsg324-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "fifo,fifo_generator_v13_2_3,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "fifo_generator_v13_2_3,Vivado 2018.3" *) 
+(* CHECK_LICENSE_TYPE = "fifo,fifo_generator_v13_2_5,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "fifo_generator_v13_2_5,Vivado 2019.2" *) 
 (* NotValidForBitStream *)
 module fifo
    (clk,
@@ -366,7 +366,7 @@ module fifo
   (* C_WR_PNTR_WIDTH_WDCH = "10" *) 
   (* C_WR_PNTR_WIDTH_WRCH = "4" *) 
   (* C_WR_RESPONSE_LATENCY = "1" *) 
-  fifo_fifo_generator_v13_2_3 U0
+  fifo_fifo_generator_v13_2_5 U0
        (.almost_empty(NLW_U0_almost_empty_UNCONNECTED),
         .almost_full(NLW_U0_almost_full_UNCONNECTED),
         .axi_ar_data_count(NLW_U0_axi_ar_data_count_UNCONNECTED[4:0]),
@@ -899,8 +899,8 @@ module fifo_blk_mem_gen_top
         .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_v8_4_2" *) 
-module fifo_blk_mem_gen_v8_4_2
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_4" *) 
+module fifo_blk_mem_gen_v8_4_4
    (dout,
     clk,
     tmp_ram_rd_en,
@@ -927,7 +927,7 @@ module fifo_blk_mem_gen_v8_4_2
   wire srst;
   wire tmp_ram_rd_en;
 
-  fifo_blk_mem_gen_v8_4_2_synth inst_blk_mem_gen
+  fifo_blk_mem_gen_v8_4_4_synth inst_blk_mem_gen
        (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram (\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram ),
         .E(E),
         .Q(Q),
@@ -938,8 +938,8 @@ module fifo_blk_mem_gen_v8_4_2
         .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_v8_4_2_synth" *) 
-module fifo_blk_mem_gen_v8_4_2_synth
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_4_synth" *) 
+module fifo_blk_mem_gen_v8_4_4_synth
    (dout,
     clk,
     tmp_ram_rd_en,
@@ -1000,44 +1000,44 @@ module fifo_fifo_generator_ramfifo
   wire [7:0]din;
   wire [7:0]dout;
   wire empty;
+  wire empty_fb_i;
   wire full;
   wire \gntv_or_sync_fifo.gl0.wr_n_1 ;
-  wire [3:0]p_0_out;
-  wire [3:0]p_11_out;
-  wire p_17_out;
-  wire p_2_out;
+  wire ram_wr_en;
   wire rd_en;
+  wire [3:0]rd_pntr;
   wire [3:0]rd_pntr_plus1;
   wire srst;
   wire tmp_ram_rd_en;
   wire wr_en;
+  wire [3:0]wr_pntr;
 
   fifo_rd_logic \gntv_or_sync_fifo.gl0.rd 
        (.Q(rd_pntr_plus1),
         .clk(clk),
         .empty(empty),
-        .\gc0.count_d1_reg[3] (p_0_out),
-        .out(p_2_out),
+        .\gc0.count_d1_reg[3] (rd_pntr),
+        .out(empty_fb_i),
         .ram_empty_i_reg(\gntv_or_sync_fifo.gl0.wr_n_1 ),
         .rd_en(rd_en),
         .srst(srst),
         .tmp_ram_rd_en(tmp_ram_rd_en));
   fifo_wr_logic \gntv_or_sync_fifo.gl0.wr 
-       (.E(p_17_out),
-        .Q(p_11_out),
+       (.E(ram_wr_en),
+        .Q(wr_pntr),
         .clk(clk),
         .full(full),
-        .out(p_2_out),
+        .out(empty_fb_i),
         .ram_empty_fb_i_reg(\gntv_or_sync_fifo.gl0.wr_n_1 ),
         .ram_empty_i_reg(rd_pntr_plus1),
-        .ram_full_fb_i_reg(p_0_out),
+        .ram_full_fb_i_reg(rd_pntr),
         .rd_en(rd_en),
         .srst(srst),
         .wr_en(wr_en));
   fifo_memory \gntv_or_sync_fifo.mem 
-       (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram (p_0_out),
-        .E(p_17_out),
-        .Q(p_11_out),
+       (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram (rd_pntr),
+        .E(ram_wr_en),
+        .Q(wr_pntr),
         .clk(clk),
         .din(din),
         .dout(dout),
@@ -1151,8 +1151,8 @@ endmodule
 (* C_WR_DEPTH_WRCH = "16" *) (* C_WR_FREQ = "1" *) (* C_WR_PNTR_WIDTH = "4" *) 
 (* C_WR_PNTR_WIDTH_AXIS = "10" *) (* C_WR_PNTR_WIDTH_RACH = "4" *) (* C_WR_PNTR_WIDTH_RDCH = "10" *) 
 (* C_WR_PNTR_WIDTH_WACH = "4" *) (* C_WR_PNTR_WIDTH_WDCH = "10" *) (* C_WR_PNTR_WIDTH_WRCH = "4" *) 
-(* C_WR_RESPONSE_LATENCY = "1" *) (* ORIG_REF_NAME = "fifo_generator_v13_2_3" *) 
-module fifo_fifo_generator_v13_2_3
+(* C_WR_RESPONSE_LATENCY = "1" *) (* ORIG_REF_NAME = "fifo_generator_v13_2_5" *) 
+module fifo_fifo_generator_v13_2_5
    (backup,
     backup_marker,
     clk,
@@ -2138,7 +2138,7 @@ module fifo_fifo_generator_v13_2_3
        (.G(\<const0> ));
   VCC VCC
        (.P(\<const1> ));
-  fifo_fifo_generator_v13_2_3_synth inst_fifo_gen
+  fifo_fifo_generator_v13_2_5_synth inst_fifo_gen
        (.clk(clk),
         .din(din),
         .dout(dout),
@@ -2149,8 +2149,8 @@ module fifo_fifo_generator_v13_2_3
         .wr_en(wr_en));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_generator_v13_2_3_synth" *) 
-module fifo_fifo_generator_v13_2_3_synth
+(* ORIG_REF_NAME = "fifo_generator_v13_2_5_synth" *) 
+module fifo_fifo_generator_v13_2_5_synth
    (dout,
     empty,
     full,
@@ -2216,7 +2216,7 @@ module fifo_memory
   wire srst;
   wire tmp_ram_rd_en;
 
-  fifo_blk_mem_gen_v8_4_2 \gbm.gbmg.gbmga.ngecc.bmg 
+  fifo_blk_mem_gen_v8_4_4 \gbm.gbmg.gbmga.ngecc.bmg 
        (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram (\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram ),
         .E(E),
         .Q(Q),
@@ -2367,14 +2367,14 @@ module fifo_rd_logic
   wire empty;
   wire [3:0]\gc0.count_d1_reg[3] ;
   wire out;
-  wire p_7_out;
   wire ram_empty_i_reg;
+  wire ram_rd_en;
   wire rd_en;
   wire srst;
   wire tmp_ram_rd_en;
 
   fifo_rd_status_flags_ss \grss.rsts 
-       (.E(p_7_out),
+       (.E(ram_rd_en),
         .clk(clk),
         .empty(empty),
         .out(out),
@@ -2383,7 +2383,7 @@ module fifo_rd_logic
         .srst(srst),
         .tmp_ram_rd_en(tmp_ram_rd_en));
   fifo_rd_bin_cntr rpntr
-       (.E(p_7_out),
+       (.E(ram_rd_en),
         .Q(Q),
         .clk(clk),
         .\gc0.count_d1_reg[3]_0 (\gc0.count_d1_reg[3] ),
@@ -2457,6 +2457,19 @@ module fifo_rd_status_flags_ss
         .S(srst));
 endmodule
 
+(* ORIG_REF_NAME = "reset_blk_ramfifo" *) 
+module fifo_reset_blk_ramfifo
+   ();
+
+  (* async_reg = "true" *) (* msgon = "true" *) wire rst_wr_reg2;
+
+  LUT1 #(
+    .INIT(2'h2)) 
+    rstblki_0
+       (.I0(1'b0),
+        .O(rst_wr_reg2));
+endmodule
+
 (* ORIG_REF_NAME = "wr_bin_cntr" *) 
 module fifo_wr_bin_cntr
    (ram_empty_fb_i_reg,
@@ -2488,7 +2501,6 @@ module fifo_wr_bin_cntr
   wire [3:0]Q;
   wire clk;
   wire out;
-  wire [3:0]p_12_out;
   wire [3:0]plusOp__0;
   wire ram_empty_fb_i_i_2_n_0;
   wire ram_empty_fb_i_i_3_n_0;
@@ -2504,41 +2516,42 @@ module fifo_wr_bin_cntr
   wire rd_en;
   wire srst;
   wire wr_en;
+  wire [3:0]wr_pntr_plus1;
 
   LUT1 #(
     .INIT(2'h1)) 
     \gcc0.gc0.count[0]_i_1 
-       (.I0(p_12_out[0]),
+       (.I0(wr_pntr_plus1[0]),
         .O(plusOp__0[0]));
   LUT2 #(
     .INIT(4'h6)) 
     \gcc0.gc0.count[1]_i_1 
-       (.I0(p_12_out[0]),
-        .I1(p_12_out[1]),
+       (.I0(wr_pntr_plus1[0]),
+        .I1(wr_pntr_plus1[1]),
         .O(plusOp__0[1]));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \gcc0.gc0.count[2]_i_1 
-       (.I0(p_12_out[2]),
-        .I1(p_12_out[0]),
-        .I2(p_12_out[1]),
+       (.I0(wr_pntr_plus1[2]),
+        .I1(wr_pntr_plus1[0]),
+        .I2(wr_pntr_plus1[1]),
         .O(plusOp__0[2]));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \gcc0.gc0.count[3]_i_1 
-       (.I0(p_12_out[3]),
-        .I1(p_12_out[0]),
-        .I2(p_12_out[1]),
-        .I3(p_12_out[2]),
+       (.I0(wr_pntr_plus1[3]),
+        .I1(wr_pntr_plus1[0]),
+        .I2(wr_pntr_plus1[1]),
+        .I3(wr_pntr_plus1[2]),
         .O(plusOp__0[3]));
   FDRE #(
     .INIT(1'b0)) 
     \gcc0.gc0.count_d1_reg[0] 
        (.C(clk),
         .CE(E),
-        .D(p_12_out[0]),
+        .D(wr_pntr_plus1[0]),
         .Q(Q[0]),
         .R(srst));
   FDRE #(
@@ -2546,7 +2559,7 @@ module fifo_wr_bin_cntr
     \gcc0.gc0.count_d1_reg[1] 
        (.C(clk),
         .CE(E),
-        .D(p_12_out[1]),
+        .D(wr_pntr_plus1[1]),
         .Q(Q[1]),
         .R(srst));
   FDRE #(
@@ -2554,7 +2567,7 @@ module fifo_wr_bin_cntr
     \gcc0.gc0.count_d1_reg[2] 
        (.C(clk),
         .CE(E),
-        .D(p_12_out[2]),
+        .D(wr_pntr_plus1[2]),
         .Q(Q[2]),
         .R(srst));
   FDRE #(
@@ -2562,7 +2575,7 @@ module fifo_wr_bin_cntr
     \gcc0.gc0.count_d1_reg[3] 
        (.C(clk),
         .CE(E),
-        .D(p_12_out[3]),
+        .D(wr_pntr_plus1[3]),
         .Q(Q[3]),
         .R(srst));
   FDSE #(
@@ -2571,7 +2584,7 @@ module fifo_wr_bin_cntr
        (.C(clk),
         .CE(E),
         .D(plusOp__0[0]),
-        .Q(p_12_out[0]),
+        .Q(wr_pntr_plus1[0]),
         .S(srst));
   FDRE #(
     .INIT(1'b0)) 
@@ -2579,7 +2592,7 @@ module fifo_wr_bin_cntr
        (.C(clk),
         .CE(E),
         .D(plusOp__0[1]),
-        .Q(p_12_out[1]),
+        .Q(wr_pntr_plus1[1]),
         .R(srst));
   FDRE #(
     .INIT(1'b0)) 
@@ -2587,7 +2600,7 @@ module fifo_wr_bin_cntr
        (.C(clk),
         .CE(E),
         .D(plusOp__0[2]),
-        .Q(p_12_out[2]),
+        .Q(wr_pntr_plus1[2]),
         .R(srst));
   FDRE #(
     .INIT(1'b0)) 
@@ -2595,7 +2608,7 @@ module fifo_wr_bin_cntr
        (.C(clk),
         .CE(E),
         .D(plusOp__0[3]),
-        .Q(p_12_out[3]),
+        .Q(wr_pntr_plus1[3]),
         .R(srst));
   LUT6 #(
     .INIT(64'hFFCC8F8CCCCC8C8C)) 
@@ -2648,7 +2661,7 @@ module fifo_wr_bin_cntr
        (.I0(wr_en),
         .I1(ram_full_fb_i_reg_0[3]),
         .I2(ram_full_fb_i_i_5_n_0),
-        .I3(p_12_out[3]),
+        .I3(wr_pntr_plus1[3]),
         .I4(ram_full_fb_i_reg),
         .O(ram_full_fb_i_i_3_n_0));
   LUT6 #(
@@ -2664,9 +2677,9 @@ module fifo_wr_bin_cntr
   LUT6 #(
     .INIT(64'h8008200240041001)) 
     ram_full_fb_i_i_5
-       (.I0(p_12_out[2]),
-        .I1(p_12_out[0]),
-        .I2(p_12_out[1]),
+       (.I0(wr_pntr_plus1[2]),
+        .I1(wr_pntr_plus1[0]),
+        .I2(wr_pntr_plus1[1]),
         .I3(ram_full_fb_i_reg_0[1]),
         .I4(ram_full_fb_i_reg_0[0]),
         .I5(ram_full_fb_i_reg_0[2]),

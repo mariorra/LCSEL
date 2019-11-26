@@ -69,13 +69,14 @@ set rc [catch {
   set_property board_part xilinx.com:ac701:part0:1.4 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/Engineer/Documents/LCSE/LCSEL/RS232_COMPLETE/RS232_COMPLETE.cache/wt [current_project]
-  set_property parent.project_path C:/Users/Engineer/Documents/LCSE/LCSEL/RS232_COMPLETE/RS232_COMPLETE.xpr [current_project]
-  set_property ip_output_repo C:/Users/Engineer/Documents/LCSE/LCSEL/RS232_COMPLETE/RS232_COMPLETE.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.cache/wt [current_project]
+  set_property parent.project_path C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.xpr [current_project]
+  set_property ip_output_repo C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet C:/Users/Engineer/Documents/LCSE/LCSEL/RS232_COMPLETE/RS232_COMPLETE.runs/synth_1/RS232top.dcp
-  read_ip -quiet c:/Users/Engineer/Documents/LCSE/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/fifo/fifo.xci
+  add_files -quiet C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.runs/synth_1/RS232top.dcp
+  read_ip -quiet C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/fifo_1/fifo.xci
+  read_ip -quiet C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen_1/Clk_Gen.xci
   link_design -top RS232top -part xc7a200tfbg676-2
   close_msg_db -file init_design.pb
 } RESULT]

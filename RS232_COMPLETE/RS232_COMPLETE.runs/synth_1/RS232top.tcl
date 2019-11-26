@@ -31,17 +31,28 @@ set_property target_language VHDL [current_project]
 set_property board_part xilinx.com:ac701:part0:1.4 [current_project]
 set_property ip_output_repo c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
+read_verilog -library xil_defaultlib {
+  C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/xsim/glbl.v
+  C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/xcelium/glbl.v
+  C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/modelsim/glbl.v
+  C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/questa/glbl.v
+  C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/riviera/glbl.v
+  C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/activehdl/glbl.v
+  C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/ies/glbl.v
+  C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/CLK_FIFO/CLK_FIFO.ip_user_files/sim_scripts/fifo/vcs/glbl.v
+}
 read_vhdl -library xil_defaultlib {
   C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RX_RS232/RX_RS232.srcs/sources_1/new/RX_RS232.vhd
   C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/ShiftRegister/ShiftRegister/ShiftRegister.srcs/sources_1/new/ShiftRegister.vhd
   C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/TX_RS232/TX_RS232.srcs/sources_1/new/TX_RS232.vhd
+  C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_test.vhd
   C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232top.vhd
 }
-read_ip -quiet c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/fifo_1/fifo.xci
+read_ip -quiet C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/fifo_1/fifo.xci
 set_property used_in_implementation false [get_files -all c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/fifo_1/fifo.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/fifo_1/fifo_ooc.xdc]
 
-read_ip -quiet c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen_1/Clk_Gen.xci
+read_ip -quiet C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen_1/Clk_Gen.xci
 set_property used_in_implementation false [get_files -all c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen_1/Clk_Gen_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen_1/Clk_Gen.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen_1/Clk_Gen_ooc.xdc]

@@ -149,8 +149,8 @@ begin
                     if s_pulse_width =  Bitcounter and LineRD_in='0' then 
                         s_RX_next_state <= RcvData;
                     -- al desconectar la recepcion se apaga la FSM
-                    elsif LineRD_in = '1'  then
-                       s_RX_next_state <= idle;
+                    --elsif LineRD_in = '1'  then
+                    --   s_RX_next_state <= idle;
                     else 
           			   s_RX_next_state <= Start_Bit;
                     end if;

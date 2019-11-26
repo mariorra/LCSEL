@@ -1,19 +1,19 @@
-// Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+// Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Sat Nov  9 13:46:08 2019
+// Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+// Date        : Sun Nov 17 23:56:01 2019
 // Host        : Engineer running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_gen/Clk_gen_sim_netlist.v
-// Design      : Clk_gen
+//               C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen/Clk_Gen_sim_netlist.v
+// Design      : Clk_Gen
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
-// Device      : xc7a200tfbg676-2
+// Device      : xc7a100tcsg324-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
 (* NotValidForBitStream *)
-module Clk_gen
+module Clk_Gen
    (clk_out1,
     reset,
     clk_in1);
@@ -25,14 +25,14 @@ module Clk_gen
   wire clk_out1;
   wire reset;
 
-  Clk_gen_Clk_gen_clk_wiz inst
+  Clk_Gen_Clk_Gen_clk_wiz inst
        (.clk_in1(clk_in1),
         .clk_out1(clk_out1),
         .reset(reset));
 endmodule
 
-(* ORIG_REF_NAME = "Clk_gen_clk_wiz" *) 
-module Clk_gen_Clk_gen_clk_wiz
+(* ORIG_REF_NAME = "Clk_Gen_clk_wiz" *) 
+module Clk_Gen_Clk_Gen_clk_wiz
    (clk_out1,
     reset,
     clk_in1);
@@ -41,11 +41,11 @@ module Clk_gen_Clk_gen_clk_wiz
   input clk_in1;
 
   wire clk_in1;
-  wire clk_in1_Clk_gen;
+  wire clk_in1_Clk_Gen;
   wire clk_out1;
-  wire clk_out1_Clk_gen;
-  wire clkfbout_Clk_gen;
-  wire clkfbout_buf_Clk_gen;
+  wire clk_out1_Clk_Gen;
+  wire clkfbout_Clk_Gen;
+  wire clkfbout_buf_Clk_Gen;
   wire reset;
   wire NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED;
@@ -67,8 +67,8 @@ module Clk_gen_Clk_gen_clk_wiz
 
   (* BOX_TYPE = "PRIMITIVE" *) 
   BUFG clkf_buf
-       (.I(clkfbout_Clk_gen),
-        .O(clkfbout_buf_Clk_gen));
+       (.I(clkfbout_Clk_Gen),
+        .O(clkfbout_buf_Clk_Gen));
   (* BOX_TYPE = "PRIMITIVE" *) 
   (* CAPACITANCE = "DONT_CARE" *) 
   (* IBUF_DELAY_VALUE = "0" *) 
@@ -77,10 +77,10 @@ module Clk_gen_Clk_gen_clk_wiz
     .IOSTANDARD("DEFAULT")) 
     clkin1_ibufg
        (.I(clk_in1),
-        .O(clk_in1_Clk_gen));
+        .O(clk_in1_Clk_Gen));
   (* BOX_TYPE = "PRIMITIVE" *) 
   BUFG clkout1_buf
-       (.I(clk_out1_Clk_gen),
+       (.I(clk_out1_Clk_Gen),
         .O(clk_out1));
   (* BOX_TYPE = "PRIMITIVE" *) 
   MMCME2_ADV #(
@@ -133,15 +133,15 @@ module Clk_gen_Clk_gen_clk_wiz
     .SS_MOD_PERIOD(10000),
     .STARTUP_WAIT("FALSE")) 
     mmcm_adv_inst
-       (.CLKFBIN(clkfbout_buf_Clk_gen),
-        .CLKFBOUT(clkfbout_Clk_gen),
+       (.CLKFBIN(clkfbout_buf_Clk_Gen),
+        .CLKFBOUT(clkfbout_Clk_Gen),
         .CLKFBOUTB(NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED),
         .CLKFBSTOPPED(NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED),
-        .CLKIN1(clk_in1_Clk_gen),
+        .CLKIN1(clk_in1_Clk_Gen),
         .CLKIN2(1'b0),
         .CLKINSEL(1'b1),
         .CLKINSTOPPED(NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED),
-        .CLKOUT0(clk_out1_Clk_gen),
+        .CLKOUT0(clk_out1_Clk_Gen),
         .CLKOUT0B(NLW_mmcm_adv_inst_CLKOUT0B_UNCONNECTED),
         .CLKOUT1(NLW_mmcm_adv_inst_CLKOUT1_UNCONNECTED),
         .CLKOUT1B(NLW_mmcm_adv_inst_CLKOUT1B_UNCONNECTED),

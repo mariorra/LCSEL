@@ -1,0 +1,58 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Sun Nov 17 23:54:46 2019
+| Host         : Engineer running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'Clk_Gen'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of Clk_Gen (xilinx.com:ip:clk_wiz:6.0) from (Rev. 2) to (Rev. 4)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Sun Nov 17 23:51:03 2019
+| Host         : Engineer running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'clk'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of clk (xilinx.com:ip:clk_wiz:6.0) from (Rev. 2) to (Rev. 4)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Sun Nov 17 23:47:35 2019
+| Host         : Engineer running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'fifo'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of fifo (xilinx.com:ip:fifo_generator:13.2) from (Rev. 3) to (Rev. 5)
+

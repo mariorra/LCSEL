@@ -1,5 +1,5 @@
 
-# file: Clk_gen_ooc.xdc
+# file: Clk_Gen_ooc.xdc
 # 
 # (c) Copyright 2008 - 2013 Xilinx, Inc. All rights reserved.
 # 

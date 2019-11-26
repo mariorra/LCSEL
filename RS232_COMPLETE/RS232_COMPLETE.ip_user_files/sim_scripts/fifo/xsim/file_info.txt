@@ -1,2 +1,0 @@
-fifo_sim_netlist.vhdl,vhdl,xil_defaultlib,../../../../RS232_COMPLETE.srcs/sources_1/ip/fifo/fifo_sim_netlist.vhdl,
-glbl.v,Verilog,xil_defaultlib,glbl.v

@@ -86,8 +86,8 @@ begin
     Valid_D <= '0';
     wait until Ack_in='0';
     
-    reset <= '0', '1' after 35 us;
-    wait until Ack_in='0';
+    --reset <= '0', '1' after 35 us;
+   -- wait until Ack_in='0';
         
     Data_in <= "11111111"; 
     wait for 5 us;
@@ -110,32 +110,33 @@ begin
     --wait for 20 us; 
   END PROCESS;
   -- Reset & Start generator
---  p_reset_rx : PROCESS
---  BEGIN
---     reset <= '0', '1' after 75 ns;
---     Valid_D <= '1';     
---     RD <= '1';     
- --    Data_read <= '0';
-
---    wait for 2500 ns; 
-
---     Valid_D <= '1', '0' after 110 ns,
----                '1' after 400 ns;
---     RD <= '1',
---           '0' after 500 ns,    -- StartBit
---           '1' after 9150 ns,   -- LSb
---           '0' after 17800 ns,
---           '0' after 26450 ns,
---           '1' after 35100 ns,
---           '1' after 43750 ns,
---           '1' after 52400 ns,
---           '1' after 61050 ns,
---           '0' after 69700 ns,  -- MSb
---           '1' after 78350 ns,  -- Stopbit
---           '1' after 87000 ns;
---     Data_read <= '0','1'after 88000 ns;
---     wait;
---  END PROCESS;
-
+ p_reset_rx : PROCESS
+          BEGIN
+            RD <= '1';     
+            Data_read <= '0';
+        
+            wait for 2500 ns; 
+            RD <= '1',
+                   '0' after 500 ns,    -- StartBit
+                   '1' after 9150 ns,   -- LSb
+                   '0' after 17800 ns,
+                   '0' after 26450 ns,
+                   '1' after 35100 ns,
+                   '1' after 43750 ns,
+                   '1' after 52400 ns,
+                   '1' after 61050 ns,
+                   '0' after 69700 ns,  -- MSb
+                   '1' after 78350 ns,  -- Stopbit
+                   '1' after 87000 ns;
+             Data_read <= '0','1'after 88000 ns;
+             wait for 10 us;
+          END PROCESS;
+--p_FIFO_TEST : PROCESS
+  --        BEGIN
+    --      Data_read <= '0','1'after 50 ns;
+      --    END PROCESS;
+  
+          
+          
 end Testbench;
 

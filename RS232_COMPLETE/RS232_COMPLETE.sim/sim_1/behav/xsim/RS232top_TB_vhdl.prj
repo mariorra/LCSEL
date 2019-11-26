@@ -1,7 +1,7 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
+"../../../../RS232_COMPLETE.srcs/sources_1/ip/fifo_2/fifo_sim_netlist.vhdl" \
 "../../../../RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen_1/Clk_Gen_sim_netlist.vhdl" \
-"../../../../RS232_COMPLETE.srcs/sources_1/ip/fifo_1/fifo_sim_netlist.vhdl" \
 "../../../../../RX_RS232/RX_RS232.srcs/sources_1/new/RX_RS232.vhd" \
 "../../../../../ShiftRegister/ShiftRegister/ShiftRegister.srcs/sources_1/new/ShiftRegister.vhd" \
 "../../../../../TX_RS232/TX_RS232.srcs/sources_1/new/TX_RS232.vhd" \

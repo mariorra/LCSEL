@@ -40,7 +40,7 @@ end ShiftRegister;
 
 architecture Behavioral of ShiftRegister is
 
-signal register_aux : STD_LOGIC_VECTOR (7 downto 0);
+signal register_aux : STD_LOGIC_VECTOR (7 downto 0):= "00000000";
 begin
 
 Reloj:    process(Reset, Clk, Enable)
@@ -56,7 +56,7 @@ Reloj:    process(Reset, Clk, Enable)
         -- el bit 7 se pierde y el valor 0 queda constante dado 
         -- que en ningun momento se propaga el valor del bit 0
         -- propagacion LSB to MSB (¿es mejor subiendo o bajando?)
-              register_aux(7 downto 0)<=D & register_aux(7 downto 1);
+              register_aux<=D & register_aux(7 downto 1);
              -- register_aux(7 downto 1)<=D & register_aux(6 downto 0);
              else 
              register_aux <= "00000000";
