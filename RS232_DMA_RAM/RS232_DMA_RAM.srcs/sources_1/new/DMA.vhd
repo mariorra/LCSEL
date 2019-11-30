@@ -63,10 +63,8 @@ end DMA;
 
 architecture Behavioral of DMA is
 
-        --RECEPTION_1
-        --RECEPTION_2
-        --TRANSMISION_1
-        TYPE state IS (Idle,CONTROL_RX,RX_COMANDO,RX_PARAMETRO1,RX_PARAMETRO2,RX_FIN, CONTROL_TX, TRANSMISION_1);
+            
+        TYPE state IS (Idle,CONTROL_RX,RX_COMANDO,RX_PARAMETRO1,RX_PARAMETRO2,RX_FIN, CONTROL_TX, TRANSMISION_BYTE1,TRANSMISION_STATUS,TRANSMISION_BYTE2);
         SIGNAL s_DMA_current_state, s_DMA_next_state: state;
  ------------------------------------------------------------------------
   -- Internal Signals
@@ -153,53 +151,80 @@ begin
             -----------------------------------------------------  
             WHEN CONTROL_RX =>
                 IF DMA_ACK_aux = '1' AND contador=0 THEN
-                s_DMA_next_state<=RX_COMANDO;
-                contador<=1;
-                END IF;
-                IF RX_empty_aux='1' then
+                    s_DMA_next_state<=RX_COMANDO;
+                    contador<=1;
+                ELSIF RX_empty_aux='1' then
                     s_DMA_next_state <= idle;
+                ELSE 
+                    s_DMA_next_state <= CONTROL_RX;
                 END IF;
                 
             WHEN RX_COMANDO =>
                 IF DMA_ACK_aux = '1' AND contador=1 THEN
-                s_DMA_next_state<=RX_PARAMETRO1;
-                contador<=2;
-                END IF;
-                IF RX_empty_aux='1' then
+                    s_DMA_next_state<=RX_PARAMETRO1;
+                    contador<=2;
+                ELSIF RX_empty_aux='1' then
                     s_DMA_next_state <= idle;
+                ELSE
+                    s_DMA_next_state <= RX_COMANDO;
                 END IF;
                 
             WHEN RX_PARAMETRO1 =>
                 IF DMA_ACK_aux = '1' AND contador=2 THEN
-                s_DMA_next_state<=RX_PARAMETRO2;
-                contador<=3;
-                END IF;
-                IF RX_empty_aux='1' then
+                     s_DMA_next_state<=RX_PARAMETRO2;
+                     contador<=3;
+                ELSIF RX_empty_aux='1' then
                     s_DMA_next_state <= idle;
+                ELSE
+                    s_DMA_next_state<=RX_PARAMETRO1;
                 END IF;
                 
             WHEN RX_PARAMETRO2 =>
                 IF DMA_ACK_aux = '1' AND contador=3 THEN
-                s_DMA_next_state<=RX_FIN;
-                contador<=4;
-                END IF;
-                IF RX_empty_aux='1' then
+                    s_DMA_next_state<=RX_FIN;
+                    contador<=4;
+                ELSIF RX_empty_aux='1' then
                     s_DMA_next_state <= idle;
+                ELSE
+                    s_DMA_next_state<=RX_PARAMETRO2;
                 END IF;
                 
             WHEN RX_FIN =>
                 IF DMA_ACK_aux = '1' AND contador=4 THEN
-                s_DMA_next_state<=IDLE;
-                contador<=0;
+                    s_DMA_next_state<=IDLE;
+                    contador<=0;
+                ELSE 
+                    s_DMA_next_state<=RX_FIN;
                 END IF;
             -----------------------------------------------------                  
             WHEN CONTROL_TX =>
                 IF ACK_OUT_aux = '0' THEN
-                    s_DMA_next_state<=XXXX;
+                    s_DMA_next_state<=TRANSMISION_BYTE1;
+                ELSE    
+                    s_DMA_next_state<=CONTROL_TX;
                 END IF;
             
+            WHEN TRANSMISION_BYTE1 =>
+                IF ACK_OUT_aux = '0' THEN
+                    s_DMA_next_state<=TRANSMISION_STATUS;
+                ELSE
+                    s_DMA_next_state<=TRANSMISION_BYTE1;
+                END IF;
             
-            WHEN TRANSMISION_1 =>
+            WHEN TRANSMISION_STATUS =>
+                IF ACK_OUT_aux = '0' THEN
+                    s_DMA_next_state<=TRANSMISION_BYTE2;
+                ELSE
+                    s_DMA_next_state<=TRANSMISION_STATUS;
+                END IF;
+                
+            WHEN TRANSMISION_BYTE2 =>
+                IF ACK_OUT_aux = '0' THEN
+                    s_DMA_next_state<=IDLE;
+                ELSE 
+                    s_DMA_next_state<=TRANSMISION_BYTE2;
+                END IF; 
+                               
         end CASE;
   END PROCESS  STATES;
   
@@ -209,7 +234,7 @@ begin
             --RX
             Data_Read_aux <= '0';
             --TX
-            TX_Data_aux <= (others => '0');
+            TX_Data_aux <= (others => 'Z');
             Valid_D_aux <='1';
             --RAM
             CS_aux<='Z';
@@ -295,13 +320,52 @@ begin
                 IF ACK_OUT_aux = '0' THEN
                     Valid_D_aux <='1';
                 END IF;
+                
+            WHEN TRANSMISION_BYTE1 =>
+                
+                TX_Data <=Databus_IN_to_DMA_aux;
+                OE_aux<='0';
+                Address_aux <= x"04";
+                READY_aux<='0';
+                DMA_RQ_aux<='1';
+                IF TX_RDY_aux = '1' THEN
+                    Valid_D_aux <= '1';
+                END IF;
+                IF ACK_OUT_aux = '0' THEN
+                    Valid_D_aux <= '1';
+                END IF;
             
+            WHEN TRANSMISION_STATUS =>
+                
+                Valid_D_aux <= '0';
+                Databus_OUT_from_DMA_aux<= (others => 'Z');
+                READY_aux<='0';
+                DMA_RQ_aux<='1';                
+                IF ACK_OUT_aux = '0' THEN
+                    TX_Data <=Databus_IN_to_DMA_aux;
+                    Valid_D_aux <='1';
+                    OE_aux<='0';
+                    Address_aux<=X"05";
+                END IF;
+                
+            WHEN TRANSMISION_BYTE2 =>
+                TX_Data <=Databus_IN_to_DMA_aux;
+                OE_aux<='0';
+                Address_aux<=X"05";
+                READY_aux<='0';
+                DMA_RQ_aux<='1';  
+                IF TX_RDY_aux = '1' THEN
+                    Valid_D_aux <= '0';
+                END IF;
+                IF ACK_OUT_aux = '0' THEN
+                    Valid_D_aux <='1';
+                    READY_aux<='1';
+                END IF; 
+                
   --#############################################
   --#############################################
   --#############################################
-  
-              
-            WHEN TRANSMISION_1 =>
+                  
         end CASE;
   END PROCESS  OUTPUTS;
   
