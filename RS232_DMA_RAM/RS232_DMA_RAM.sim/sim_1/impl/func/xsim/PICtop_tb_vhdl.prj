@@ -1,0 +1,11 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"PICtop_tb_func_impl.vhd" \
+"../../../../../PIC_pkg.vhd" \
+"../../../../../RS232_DMA_RAM.srcs/sources_1/imports/LCSEL/RS232_DMA_RAM/PIC_pkg.vhd" \
+"../../../../../RS232_DMA_RAM.srcs/sources_1/imports/LCSEL/RS232_DMA_RAM/RS232_test.vhd" \
+"../../../../../RS232_test.vhd" \
+"../../../../../RS232_DMA_RAM.srcs/sim_1/imports/RS232_DMA_RAM/tb_PICtop.vhd" \
+
+# Do not sort compile order
+nosort

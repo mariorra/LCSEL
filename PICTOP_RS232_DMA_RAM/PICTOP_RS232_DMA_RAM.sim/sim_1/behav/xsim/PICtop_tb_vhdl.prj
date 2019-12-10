@@ -1,0 +1,18 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP_sim_netlist.vhdl" \
+"../../../../PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo_sim_netlist.vhdl" \
+"../../../../PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_gen/Clk_gen_sim_netlist.vhdl" \
+"../../../../../DMA.vhd" \
+"../../../../../PIC_pkg.vhd" \
+"../../../../../PICtop.vhd" \
+"../../../../../RAM.vhd" \
+"../../../../../RS232_test.vhd" \
+"../../../../../RS232top.vhd" \
+"../../../../../RX_RS232/RX_RS232.srcs/sources_1/new/RX_RS232.vhd" \
+"../../../../../ShiftRegister/ShiftRegister/ShiftRegister.srcs/sources_1/new/ShiftRegister.vhd" \
+"../../../../../TX_RS232/TX_RS232.srcs/sources_1/new/TX_RS232.vhd" \
+"../../../../../tb_PICtop.vhd" \
+
+# Do not sort compile order
+nosort

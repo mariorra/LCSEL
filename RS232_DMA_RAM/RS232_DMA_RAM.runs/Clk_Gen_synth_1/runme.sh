@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_DMA_RAM/RS232_DMA_RAM.runs/Clk_Gen_synth_1'
+HD_PWD='C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_DMA_RAM/RS232_DMA_RAM.runs/Clk_gen_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log Clk_Gen.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Clk_Gen.tcl
+EAStep vivado -log Clk_gen.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Clk_gen.tcl

@@ -7,7 +7,7 @@ vlib questa_lib/msim/xil_defaultlib
 vmap xpm questa_lib/msim/xpm
 vmap xil_defaultlib questa_lib/msim/xil_defaultlib
 
-vlog -work xpm -64 -sv "+incdir+../../../../../RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen" \
+vlog -work xpm -64 -sv "+incdir+../../../../RS232_DMA_RAM.srcs/sources_1/ip/Clk_gen" \
 "C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
 "C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
@@ -15,7 +15,7 @@ vcom -work xpm -64 -93 \
 "C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../../../RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen/Clk_Gen_sim_netlist.vhdl" \
+"../../../../RS232_DMA_RAM.srcs/sources_1/ip/Clk_gen/Clk_gen_sim_netlist.vhdl" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

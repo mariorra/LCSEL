@@ -60,6 +60,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -78,7 +79,8 @@ set rc [catch {
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   add_files -quiet C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_DMA_RAM/RS232_DMA_RAM.runs/synth_1/PICtop.dcp
   read_ip -quiet C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/CLK_FIFO/CLK_FIFO.srcs/sources_1/ip/fifo/fifo.xci
-  read_ip -quiet C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen/Clk_Gen.xci
+  read_ip -quiet C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_DMA_RAM/RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci
+  read_ip -quiet C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_DMA_RAM/RS232_DMA_RAM.srcs/sources_1/ip/Clk_gen/Clk_gen.xci
   link_design -top PICtop -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]

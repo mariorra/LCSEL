@@ -5,16 +5,23 @@ USE IEEE.numeric_std.all;
 
 USE work.PIC_pkg.all;
 
+
 entity PICtop is
   port (
     Reset    : in  std_logic;           -- Asynchronous, active low
-    Clk20Mhz      : in  std_logic;           -- System clock, 20 MHz, rising_edge
+    --Clk20Mhz      : in  std_logic;           -- System clock, 20 MHz, rising_edge
     Clk100MHZ      : in  std_logic;           -- System clock, 20 MHz, rising_edge
     RS232_RX : in  std_logic;           -- RS232 RX line
     RS232_TX : out std_logic;           -- RS232 TX line
     switches : out std_logic_vector(7 downto 0);   -- Switch status bargraph
-    Temp     : out std_logic_vector(7 downto 0);   -- Display value for T_STAT
-    Disp     : out std_logic_vector(1 downto 0));  -- Display activation for T_STAT
+    Temp     : out std_logic_vector(6 downto 0);   -- Display value for T_STAT
+    Disp     : out std_logic_vector(1 downto 0);  -- Display activation for T_STAT
+          --PUERTOS para simular el control desde el micro 
+      U_DMA_RQ : out std_logic;
+      U_DMA_ACK : in std_logic;
+      U_Send_command : in std_logic;
+      U_READY : out std_logic 
+      );
 end PICtop;
 
 architecture behavior of PICtop is
@@ -22,7 +29,7 @@ architecture behavior of PICtop is
   component RS232top
     port (
       Reset     : in  std_logic;
-      Clk       : in  std_logic;
+      Clk_TOP       : in  std_logic;
       Data_in   : in  std_logic_vector(7 downto 0);
       Valid_D   : in  std_logic;
       Ack_in    : out std_logic;
@@ -33,9 +40,11 @@ architecture behavior of PICtop is
       Data_read : in  std_logic;
       Full      : out std_logic;
       Empty     : out std_logic);
+ 
+      
   end component;
 
-  component Clk_gen--100mhz
+  component Clk_PIC_TOP--100mhz
     port (
       reset     : in  std_logic;
       clk_in1   : in  std_logic;
@@ -94,11 +103,6 @@ end component;
         signal Valid_D_RS : std_logic;
         signal ACK_FROM_RS : std_logic;
         signal TX_RDY_FROM_RS : std_logic; 
-        --SEÑALES DMA            
-        signal Send_command : std_logic;
-        signal DMA_ACK : std_logic;
-        signal READY : std_logic;
-        signal DMA_RQ : std_logic;
         --SEÑALES RAM
         signal CS_RAM : std_logic;
         signal OE_RAM : std_logic;
@@ -107,6 +111,18 @@ end component;
         signal databus : std_logic_vector (7 downto 0);        
         signal Temp_L : std_logic_vector (6 downto 0);
         signal Temp_H : std_logic_vector (6 downto 0);
+         --SEÑALES MICRO            
+        signal Send_command : std_logic;
+        signal DMA_ACK : std_logic;
+        signal READY : std_logic;
+        signal DMA_RQ : std_logic;
+        
+                 --SEÑALES MICRO    SIMULACION        
+        signal m_Send_command : std_logic;
+        signal m_DMA_ACK : std_logic;
+        signal m_READY : std_logic;
+        signal m_DMA_RQ : std_logic;
+        
   ------------------------------------------------------------------------
   -- Internal Signals
   ------------------------------------------------------------------------ 
@@ -116,7 +132,7 @@ begin  -- behavior
   RS232_PHY: RS232top
         port map (
             Reset     => Reset,
-            Clk       => Clk,
+            Clk_TOP       => Clk,
             Data_in   => Data_in_TO_RS_TX_TX_Data,
             Valid_D   => Valid_D_RS,
             Ack_in    => ACK_FROM_RS,
@@ -146,10 +162,10 @@ begin  -- behavior
             Databus => Databus,
             Write_en => Write_en_RAM,
             OE => OE_RAM,
-            DMA_RQ => DMA_RQ,
-            DMA_ACK => DMA_ACK,
-            Send_comm => Send_command ,
-            READY => READY
+            DMA_RQ => m_DMA_RQ,
+            DMA_ACK => m_DMA_ACK,
+            Send_comm => m_Send_command ,
+            READY => m_READY
             );
         
 RAM_PORTS: RAM
@@ -166,7 +182,7 @@ RAM_PORTS: RAM
             );
                   
            
- Clock_generator : Clk_Gen
+ Clock_generator : Clk_PIC_TOP
         port map (
             reset    => reset_o,   
             clk_in1  => Clk100MHz,
@@ -179,6 +195,13 @@ Clocking: process (Clk, Reset)
     begin
     if Reset = '0' then
     elsif rising_edge(Clk) then
+    Temp<=temp_L;
+   -- Disp<=temp_H;
+    U_DMA_RQ<= m_DMA_RQ;
+    m_DMA_ACK <= U_DMA_ACK;
+    m_Send_command <= U_Send_command;
+    U_READY <= m_READY;
+
     end if;
     end process Clocking;
 end behavior;

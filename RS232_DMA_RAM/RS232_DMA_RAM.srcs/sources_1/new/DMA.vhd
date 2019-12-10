@@ -88,10 +88,12 @@ architecture Behavioral of DMA is
         signal Databus_OUT_from_DMA_aux : std_logic_vector(7 downto 0);
         signal Databus_IN_to_DMA_aux : std_logic_vector(7 downto 0);
         signal contador: integer :=0;
+        signal contador_aux: integer :=0;
             -- contador = 1  comando
             -- contador = 2  parametro 1
             -- contador = 3  parametro 2
             -- contador = 4  fin transmision
+        signal prueba : std_logic;            
     
   ------------------------------------------------------------------------
   -- Internal Signals
@@ -103,12 +105,14 @@ begin
       if(Reset = '0') then
       s_DMA_current_state <= idle;
       contador<=0;
+      prueba<='0';
       elsif rising_edge(Clk) then 
       s_DMA_current_state <=  s_DMA_next_state;  
+      contador<=contador_aux;
       end if;
   END PROCESS  RELOJ;
   
-  
+ -- contador<=contador_aux;
   --RX
     --INPUTS
     RX_empty_aux<=RX_empty;
@@ -138,33 +142,39 @@ begin
     DMA_RQ<= DMA_RQ_aux;
     READY<=READY_aux;
   
-  STATES: PROCESS (s_DMA_current_state)
+  STATES: PROCESS (s_DMA_current_state,RX_empty_aux,Send_command_aux,DMA_ACK_aux,contador,contador_aux,ACK_OUT_aux)
     begin
         CASE s_DMA_current_state IS
             WHEN Idle =>
                 -- SELECCION DE TX O RX
                 IF RX_empty_aux ='0' and Send_command_aux='0'THEN
-                    s_DMA_next_state<=CONTROL_RX;
+                    s_DMA_next_state<=RX_COMANDO;
                 elsif Send_command_aux='1' then 
                     s_DMA_next_state<=CONTROL_TX;
+                else 
+                    s_DMA_next_state<=idle;
                 END IF;
             -----------------------------------------------------  
             WHEN CONTROL_RX =>
-                IF DMA_ACK_aux = '1' AND contador=0 THEN
+                prueba <= '0';
+                IF DMA_ACK_aux = '1' then -- AND contador=0 THEN
+                    prueba <= '1';
                     s_DMA_next_state<=RX_COMANDO;
-                    contador<=1;
-                ELSIF RX_empty_aux='1' then
-                    s_DMA_next_state <= idle;
+                    contador_aux<=1;
+               -- ELSIF RX_empty_aux='1' then
+                --    s_DMA_next_state <= idle;
+                elsif Send_command_aux='1' then
+                    s_DMA_next_state<=idle;
                 ELSE 
-                    s_DMA_next_state <= CONTROL_RX;
+                    s_DMA_next_state <= idle;--CONTROL_RX;
                 END IF;
                 
             WHEN RX_COMANDO =>
                 IF DMA_ACK_aux = '1' AND contador=1 THEN
                     s_DMA_next_state<=RX_PARAMETRO1;
-                    contador<=2;
-                ELSIF RX_empty_aux='1' then
-                    s_DMA_next_state <= idle;
+                    contador_aux<=2;
+               -- ELSIF RX_empty_aux='1' then
+                --    s_DMA_next_state <= idle;
                 ELSE
                     s_DMA_next_state <= RX_COMANDO;
                 END IF;
@@ -172,9 +182,9 @@ begin
             WHEN RX_PARAMETRO1 =>
                 IF DMA_ACK_aux = '1' AND contador=2 THEN
                      s_DMA_next_state<=RX_PARAMETRO2;
-                     contador<=3;
-                ELSIF RX_empty_aux='1' then
-                    s_DMA_next_state <= idle;
+                     contador_aux<=3;
+                --ELSIF RX_empty_aux='1' then
+                --    s_DMA_next_state <= idle;
                 ELSE
                     s_DMA_next_state<=RX_PARAMETRO1;
                 END IF;
@@ -182,9 +192,9 @@ begin
             WHEN RX_PARAMETRO2 =>
                 IF DMA_ACK_aux = '1' AND contador=3 THEN
                     s_DMA_next_state<=RX_FIN;
-                    contador<=4;
-                ELSIF RX_empty_aux='1' then
-                    s_DMA_next_state <= idle;
+                    contador_aux<=4;
+                --ELSIF RX_empty_aux='1' then
+                --    s_DMA_next_state <= idle;
                 ELSE
                     s_DMA_next_state<=RX_PARAMETRO2;
                 END IF;
@@ -192,7 +202,7 @@ begin
             WHEN RX_FIN =>
                 IF DMA_ACK_aux = '1' AND contador=4 THEN
                     s_DMA_next_state<=IDLE;
-                    contador<=0;
+                    contador_aux<=0;
                 ELSE 
                     s_DMA_next_state<=RX_FIN;
                 END IF;
@@ -228,7 +238,7 @@ begin
         end CASE;
   END PROCESS  STATES;
   
-   OUTPUTS: PROCESS (s_DMA_current_state)
+   OUTPUTS: PROCESS (s_DMA_current_state,RX_empty_aux,Send_command_aux,DMA_ACK_aux,ACK_OUT_aux,TX_RDY_aux)
     begin
             ------------DEFAULT-----------------
             --RX
@@ -248,10 +258,11 @@ begin
             
         CASE s_DMA_current_state IS
             WHEN Idle =>
-                IF Send_command_aux='1' then  
+--                IF Send_command_aux='1' then  
+
                     READY_aux<='0';
                     DMA_RQ_aux<='1';
-                END IF;
+  --              END IF;
             
   --#############################################
   --#############################################
@@ -259,6 +270,7 @@ begin
                 
             WHEN CONTROL_RX =>
                 IF DMA_ACK_aux = '1' THEN
+                    Data_Read_aux <= '1';
                     READY_aux<='0';
                     DMA_RQ_aux<='1';
                 END IF;
@@ -273,7 +285,7 @@ begin
                     READY_aux<='0';
                 END IF;
                 
-            WHEN RX_COMANDO =>
+            WHEN RX_PARAMETRO1 =>
                 IF DMA_ACK_aux = '1' THEN
                     Data_Read_aux <= '1';
                     TX_Data_aux <= (others => 'Z');
@@ -361,11 +373,7 @@ begin
                     Valid_D_aux <='1';
                     READY_aux<='1';
                 END IF; 
-                
-  --#############################################
-  --#############################################
-  --#############################################
-                  
+
         end CASE;
   END PROCESS  OUTPUTS;
   

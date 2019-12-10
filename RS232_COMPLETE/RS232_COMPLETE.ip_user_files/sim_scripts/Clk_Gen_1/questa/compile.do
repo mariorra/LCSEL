@@ -14,6 +14,9 @@ vlog -work xpm -64 -sv "+incdir+../../../../RS232_COMPLETE.srcs/sources_1/ip/Clk
 vcom -work xpm -64 -93 \
 "C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_VCOMP.vhd" \
 
+vcom -work xil_defaultlib -64 -93 \
+"../../../../RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen_1/Clk_Gen_sim_netlist.vhdl" \
+
 vlog -work xil_defaultlib \
 "glbl.v"
 

@@ -116,7 +116,7 @@ begin
                     s_RX_dataCount <= "000" ;
                 end if;
                 
-                if s_RX_current_state = RcvData AND s_valid_out_aux = '1' then
+                if s_RX_current_state = RcvData AND s_pulse_width =  bitcounter THEN --s_valid_out_aux = '1' then
                         s_RX_dataCount<=s_RX_dataCount+1;
                 end if;
             end if;
@@ -186,7 +186,7 @@ begin
     OUTPUTS: process(Clk,s_RX_current_state,s_pulse_width,s_RX_dataCount,LineRD_in)
         begin
             CASE s_RX_current_state IS
-                
+                    
                     WHEN idle =>
                     -- las salidas en este estado no se deben de mover de 0 
                         s_valid_out_aux<='0';
@@ -203,30 +203,23 @@ begin
                     -----------------------------------------------------  
                 
                     WHEN RcvData =>
-                        --transmite a la FIFO el valor de la entrada de RX     
-                        if (s_pulse_width =  bitcounter ) THEN
+                        --transmite a la FIFO el valor de la entrada de RX  por medio del SR   
                             s_valid_out_aux <= '1';
                             s_code_out_aux <= LineRD_in;
                             s_store_out_aux<='0';
-                        else
-                            s_valid_out_aux<='0';
-                            s_code_out_aux<='0';
-                            s_store_out_aux <='0';
-                        end if;
-
+                      
                     -----------------------------------------------------       
                 
                     WHEN Stop_Bit =>
-                        If s_pulse_width =  Halfbitcounter and LineRD_in='1' then 
-                            s_store_out_aux<='1';
+                     
                             s_valid_out_aux <= '0';
                             s_code_out_aux<='0';
-                        else
-                            s_store_out_aux<='0';
-                            s_valid_out_aux <= '0';
-                            s_code_out_aux<='0';
-                        end if; 
-
+                    if s_pulse_width <  "00000001" then
+                           s_store_out_aux<='1';
+                    else 
+                        s_store_out_aux<='0';                           
+                    end if;
+    
                 end CASE;
         end process OUTPUTS;
 

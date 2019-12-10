@@ -53,90 +53,78 @@ begin
   p_clk : PROCESS
   BEGIN
      clk <= '1', '0' after 5 ns;
-     wait for 10 ns;
+     wait for 10 ns;--100MHZ
   END PROCESS;
   
- p_tx : PROCESS
-  BEGIN    
+ --p_tx : PROCESS
+  --BEGIN    
     
-    Valid_D <= '0'; 
-    reset <= '0', '1' after 5 us;
-    Data_in <= "00000000";
+    --Valid_D <= '0'; 
+    --reset <= '0', '1' after 5 us;
+    --Data_in <= "00000000";
     ----------------------------------------------------------
     --secuencia con la que se desactiva el envio ciclico
-    wait until Ack_in='0';
-    wait for 5 us;
-    Valid_D <= '1';
-    wait for 20 us;
-    Valid_D <= '0';
-    wait until Ack_in='0';
+    --wait until Ack_in='0';
+    --wait for 5 us;
+    --Valid_D <= '1';
+    --wait for 20 us;
+    --Valid_D <= '0';
+    --wait until Ack_in='0';
     ----------------------------------------------------------
-    Data_in <= "11100010"; 
-    wait for 5 us;
-    Valid_D <= '1';
-    wait for 20 us;
-    Valid_D <= '0';
-    wait until Ack_in='0';
+    --Data_in <= "11100010"; 
+    --wait for 5 us;
+    --Valid_D <= '1';
+    --wait for 20 us;
+    --Valid_D <= '0';
+    --wait until Ack_in='0';
     
-    Data_in <= "00001100"; 
-    wait for 5 us;
-    Valid_D <= '1';
+    --Data_in <= "00001100"; 
+    --wait for 5 us;
+    --Valid_D <= '1';
 
-    wait for 20 us;
-    Valid_D <= '0';
-    wait until Ack_in='0';
+    --wait for 20 us;
+    --Valid_D <= '0';
+    --wait until Ack_in='0';
     
     --reset <= '0', '1' after 35 us;
    -- wait until Ack_in='0';
         
-    Data_in <= "11111111"; 
-    wait for 5 us;
-    Valid_D <= '1';
-    wait for 20 us;
-    Valid_D <= '0';
-    wait until Ack_in='0';
+    --Data_in <= "11111111"; 
+    --wait for 5 us;
+    --Valid_D <= '1';
+    --wait for 20 us;
+    --Valid_D <= '0';
+    --wait until Ack_in='0';
     
     
     
-    Data_in <= "10101010"; 
-    wait for 5 us;
-    Valid_D <= '1';
-    wait for 20 us;
-    Valid_D <= '0';
+    --Data_in <= "10101010"; 
+    --wait for 5 us;
+    --Valid_D <= '1';
+    --wait for 20 us;
+    --Valid_D <= '0';
     --wait until Ack_in='0';
     
     
     --Transmit(TD,Data_in);
     --wait for 20 us; 
-  END PROCESS;
+  --END PROCESS;
   -- Reset & Start generator
+  Reset <= '0', '1' after 75 ns;
  p_reset_rx : PROCESS
           BEGIN
-            RD <= '1';     
-            Data_read <= '0';
-        
-            wait for 2500 ns; 
-            RD <= '1',
-                   '0' after 500 ns,    -- StartBit
-                   '1' after 9150 ns,   -- LSb
-                   '0' after 17800 ns,
-                   '0' after 26450 ns,
-                   '1' after 35100 ns,
-                   '1' after 43750 ns,
-                   '1' after 52400 ns,
-                   '1' after 61050 ns,
-                   '0' after 69700 ns,  -- MSb
-                   '1' after 78350 ns,  -- Stopbit
-                   '1' after 87000 ns;
-             Data_read <= '0','1'after 88000 ns;
-             wait for 10 us;
+            Valid_D <= '1'; 
+            RD <= '1';
+            wait for 40 us;
+            Transmit(RD, X"49");
           END PROCESS;
---p_FIFO_TEST : PROCESS
-  --        BEGIN
-    --      Data_read <= '0','1'after 50 ns;
-      --    END PROCESS;
-  
           
+p_FIFO_TEST : PROCESS
+         BEGIN
+        Data_read <= '0','1'after 40us;
+         wait for 400 us;
+          END PROCESS;
+           
           
 end Testbench;
 

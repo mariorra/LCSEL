@@ -17,6 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param chipscope.maxJobs 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xc7a200tfbg676-2
@@ -30,6 +31,7 @@ set_property parent.project_path C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
+set_property board_part_repo_paths {C:/Users/Engenieer/AppData/Roaming/Xilinx/Vivado/2019.2/xhub/board_store} [current_project]
 set_property board_part xilinx.com:ac701:part0:1.4 [current_project]
 set_property ip_output_repo c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_COMPLETE/RS232_COMPLETE.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]

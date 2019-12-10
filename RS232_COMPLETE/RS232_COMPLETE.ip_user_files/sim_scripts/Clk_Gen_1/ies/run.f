@@ -6,6 +6,9 @@
   "C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
+  "../../../../RS232_COMPLETE.srcs/sources_1/ip/Clk_Gen_1/Clk_Gen_sim_netlist.vhdl" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
   glbl.v
 -endlib
 

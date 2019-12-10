@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Mon Dec  2 19:11:27 2019
+# Process ID: 12556
+# Current directory: C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_DMA_RAM/RS232_DMA_RAM.runs/Clk_PIC_TOP_synth_1
+# Command line: vivado.exe -log Clk_PIC_TOP.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Clk_PIC_TOP.tcl
+# Log file: C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_DMA_RAM/RS232_DMA_RAM.runs/Clk_PIC_TOP_synth_1/Clk_PIC_TOP.vds
+# Journal file: C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/RS232_DMA_RAM/RS232_DMA_RAM.runs/Clk_PIC_TOP_synth_1\vivado.jou
+#-----------------------------------------------------------
+source Clk_PIC_TOP.tcl -notrace

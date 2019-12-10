@@ -1,0 +1,2 @@
+Clk_gen_sim_netlist.vhdl,vhdl,xil_defaultlib,../../../../PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_gen/Clk_gen_sim_netlist.vhdl,incdir="../../../../PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_gen"
+glbl.v,Verilog,xil_defaultlib,glbl.v

@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1575141544">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1575741022">
   <File Type="PA-TCL" Name="PICtop.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="PICtop_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="PICtop_reports.tcl"/>
   <File Type="RDS-RDS" Name="PICtop.vds"/>
   <File Type="RDS-UTIL" Name="PICtop_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="PICtop_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="PICtop.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="PICtop_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="PICtop_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/DMA.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/PIC_pkg.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -67,20 +70,27 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/LCSEL/RS232_DMA_RAM/ROM.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/ROM.vhd"/>
-        <Attr Name="ImportTime" Val="1539002474"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/LCSEL/RS232_DMA_RAM/RS232_test.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/RS232_test.vhd"/>
         <Attr Name="ImportTime" Val="1381240294"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/RS232_test.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/LCSEL/RS232_DMA_RAM/ROM.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/ROM.vhd"/>
+        <Attr Name="ImportTime" Val="1539002474"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -115,5 +125,6 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="fifo"/>
-  <BlockFileSet Type="BlockSrcs" Name="Clk_Gen"/>
+  <BlockFileSet Type="BlockSrcs" Name="Clk_PIC_TOP"/>
+  <BlockFileSet Type="BlockSrcs" Name="Clk_gen"/>
 </GenRun>

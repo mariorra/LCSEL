@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP_sim_netlist.vhdl" \
+
+nosort

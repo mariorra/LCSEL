@@ -7,7 +7,7 @@ entity RS232top is
 
   port (
     Reset     : in  std_logic;   -- Low_level-active asynchronous reset
-    Clk100MHz : in  std_logic;   -- System clock (20MHz), rising edge used
+    Clk_TOP : in  std_logic;   -- System clock (20MHz), rising edge used
     Data_in   : in  std_logic_vector(7 downto 0);  -- Data to be sent
     Valid_D   : in  std_logic;   -- Handshake signal
                                  -- from guest system, low when data is valid
@@ -18,6 +18,7 @@ entity RS232top is
     RD        : in  std_logic;   -- RS232 Reception line
     Data_out  : out std_logic_vector(7 downto 0);  -- Received data
     Data_read : in  std_logic;   -- Data read for guest system
+    RESET_FIFO :in  std_logic;
     Full      : out std_logic;   -- Full internal memory
     Empty     : out std_logic);  -- Empty internal memory
 
@@ -109,7 +110,7 @@ begin  -- RTL
   Clock_generator : Clk_gen
     port map (
       reset    => reset_p,   
-      clk_in1  => Clk100MHz,
+      clk_in1  => Clk_TOP,
       clk_out1 => Clk);
     --  locked   => open);
 
@@ -139,8 +140,8 @@ begin  -- RTL
       D      => Code_Out,
       Q      => Fifo_in);
 
-  sinit <= not reset;
-  
+  --sinit <= not reset;
+   sinit <= RESET_FIFO;
   Internal_memory: fifo
     port map (
       clk   => clk,
@@ -168,10 +169,12 @@ begin  -- RTL
        
       --ESTA TRANSICIOn hace que solo se use RX o TX
       if Valid_D = '0' and TX_RDY_i = '1' then
+        -- TX
         Data_FF <= Data_in;
         Ack_in  <= '0';
         StartTX <= '1';
       else
+        -- RX
         Ack_in  <= '1';
         StartTX <= '0';
       end if;

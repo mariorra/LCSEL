@@ -1,14 +1,14 @@
 onbreak {quit -force}
 onerror {quit -force}
 
-asim -t 1ps +access +r +m+Clk_Gen -L xpm -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -O5 xil_defaultlib.Clk_Gen xil_defaultlib.glbl
+asim -t 1ps +access +r +m+Clk_gen -L xpm -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -O5 xil_defaultlib.Clk_gen xil_defaultlib.glbl
 
 do {wave.do}
 
 view wave
 view structure
 
-do {Clk_Gen.udo}
+do {Clk_gen.udo}
 
 run -all
 

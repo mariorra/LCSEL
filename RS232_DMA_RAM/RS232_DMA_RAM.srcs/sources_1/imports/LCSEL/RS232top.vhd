@@ -7,7 +7,7 @@ entity RS232top is
 
   port (
     Reset     : in  std_logic;   -- Low_level-active asynchronous reset
-    Clk100MHz : in  std_logic;   -- System clock (20MHz), rising edge used
+    Clk_TOP : in  std_logic;   -- System clock (20MHz), rising edge used
     Data_in   : in  std_logic_vector(7 downto 0);  -- Data to be sent
     Valid_D   : in  std_logic;   -- Handshake signal
                                  -- from guest system, low when data is valid
@@ -19,8 +19,9 @@ entity RS232top is
     Data_out  : out std_logic_vector(7 downto 0);  -- Received data
     Data_read : in  std_logic;   -- Data read for guest system
     Full      : out std_logic;   -- Full internal memory
-    Empty     : out std_logic);  -- Empty internal memory
+    Empty     : out std_logic  -- Empty internal memory
 
+    );
 end RS232top;
 
 architecture RTL of RS232top is
@@ -32,9 +33,9 @@ architecture RTL of RS232top is
   signal Clk, reset_p    : std_logic;
 
   component Clk_gen
-    port (
+   port (
       reset     : in  std_logic;
-      clk_in1   : in  std_logic;
+      Clk_in1   : in  std_logic;
       clk_out1  : out  std_logic);
      -- locked    : out std_logic);
   end component;
@@ -108,8 +109,9 @@ begin  -- RTL
   
   Clock_generator : Clk_gen
     port map (
-      reset    => reset_p,   
-      clk_in1  => Clk100MHz,
+      reset    => reset_p,
+      clk_in1  => Clk_TOP,   
+      --clk_in1  => Clk100MHz,
       clk_out1 => Clk);
     --  locked   => open);
 

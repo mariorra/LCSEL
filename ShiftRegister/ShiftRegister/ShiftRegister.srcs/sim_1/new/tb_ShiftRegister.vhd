@@ -64,7 +64,7 @@ signal_reset : PROCESS
 
     BEGIN
     Reset <= '0';
-    wait for 100 ns;
+    wait for 10 ns;
     Reset <= '1';
     wait for 200 ns;
     END PROCESS;
@@ -76,21 +76,14 @@ signal_reset : PROCESS
     Clk <= '0'; wait for clk_period/2;
     END PROCESS;
     
-    
-    signal_enable : PROCESS 
-    
-    BEGIN
-    Enable <= '0';
-    wait for 20 ns;
-    Enable <= '1';
-    wait for 200 ns; 
-    
-    END PROCESS;
-    
-    
+   
     signal_d : PROCESS 
     
     BEGIN 
+    Enable <= '0';
+     D <= '0';
+    wait for 20 ns;
+    Enable <= '1';
     D <= '1';
     wait for clk_period;
     D <= '0';
@@ -105,11 +98,14 @@ signal_reset : PROCESS
     wait for clk_period;
     D <= '1';
     wait for clk_period;
+    D <= '0';
+    wait for clk_period;
+    D <= '1';
+    Enable <= '0';
+    wait for clk_period/2;
     D <= '0';
     wait for clk_period*10;
     
     END PROCESS;
-
-
 
 end tb;

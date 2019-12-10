@@ -24,7 +24,7 @@ PACKAGE BODY RS232_test IS
            begin
        
              TX <= '0';
-             wait for 8680.6 ns;  -- about to send byte
+             wait for 8780.6 ns;  -- about to send byte
 
              for i in 0 to 7 loop
                TX <= DATA(i);

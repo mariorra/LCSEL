@@ -1,0 +1,205 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Sat Dec  7 18:55:58 2019
+| Host         : Engineer running 64-bit major release  (build 9200)
+| Command      : report_methodology -file PICtop_methodology_drc_routed.rpt -pb PICtop_methodology_drc_routed.pb -rpx PICtop_methodology_drc_routed.rpx
+| Design       : PICtop
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 33
++-----------+------------------+----------------------------------------------------+------------+
+| Rule      | Severity         | Description                                        | Violations |
++-----------+------------------+----------------------------------------------------+------------+
+| TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree | 1          |
+| TIMING-6  | Critical Warning | No common primary clock between related clocks     | 2          |
+| TIMING-7  | Critical Warning | No common node between related clocks              | 2          |
+| TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 1          |
+| TIMING-18 | Warning          | Missing input or output delay                      | 3          |
+| TIMING-20 | Warning          | Non-clocked latch                                  | 24         |
++-----------+------------------+----------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-4#1 Critical Warning
+Invalid primary clock redefinition on a clock tree  
+Invalid clock redefinition on a clock tree. The primary clock RS232_PHY/Clock_generator/inst/clk_in1 is defined downstream of clock clk_out1_Clk_PIC_TOP and overrides its insertion delay and/or waveform definition
+Related violations: <none>
+
+TIMING-6#1 Critical Warning
+No common primary clock between related clocks  
+The clocks clk_out1_Clk_PIC_TOP and clk_out1_Clk_gen_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_Clk_PIC_TOP] -to [get_clocks clk_out1_Clk_gen_1]
+Related violations: <none>
+
+TIMING-6#2 Critical Warning
+No common primary clock between related clocks  
+The clocks clk_out1_Clk_gen_1 and clk_out1_Clk_PIC_TOP are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_Clk_gen_1] -to [get_clocks clk_out1_Clk_PIC_TOP]
+Related violations: <none>
+
+TIMING-7#1 Critical Warning
+No common node between related clocks  
+The clocks clk_out1_Clk_PIC_TOP and clk_out1_Clk_gen_1 are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_Clk_PIC_TOP] -to [get_clocks clk_out1_Clk_gen_1]
+Related violations: <none>
+
+TIMING-7#2 Critical Warning
+No common node between related clocks  
+The clocks clk_out1_Clk_gen_1 and clk_out1_Clk_PIC_TOP are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_Clk_gen_1] -to [get_clocks clk_out1_Clk_PIC_TOP]
+Related violations: <none>
+
+TIMING-27#1 Critical Warning
+Invalid primary clock on hierarchical pin  
+A primary clock RS232_PHY/Clock_generator/inst/clk_in1 is created on an inappropriate internal pin RS232_PHY/Clock_generator/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on RS232_RX relative to clock(s) RS232_PHY/Clock_generator/inst/clk_in1
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on Reset relative to clock(s) RS232_PHY/Clock_generator/inst/clk_in1
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on RS232_TX relative to clock(s) RS232_PHY/Clock_generator/inst/clk_in1
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch DMA_ports/Databus_OUT_from_DMA_aux_reg[0] cannot be properly analyzed as its control pin DMA_ports/Databus_OUT_from_DMA_aux_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch DMA_ports/Databus_OUT_from_DMA_aux_reg[1] cannot be properly analyzed as its control pin DMA_ports/Databus_OUT_from_DMA_aux_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch DMA_ports/Databus_OUT_from_DMA_aux_reg[2] cannot be properly analyzed as its control pin DMA_ports/Databus_OUT_from_DMA_aux_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch DMA_ports/Databus_OUT_from_DMA_aux_reg[3] cannot be properly analyzed as its control pin DMA_ports/Databus_OUT_from_DMA_aux_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch DMA_ports/Databus_OUT_from_DMA_aux_reg[4] cannot be properly analyzed as its control pin DMA_ports/Databus_OUT_from_DMA_aux_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch DMA_ports/Databus_OUT_from_DMA_aux_reg[5] cannot be properly analyzed as its control pin DMA_ports/Databus_OUT_from_DMA_aux_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch DMA_ports/Databus_OUT_from_DMA_aux_reg[6] cannot be properly analyzed as its control pin DMA_ports/Databus_OUT_from_DMA_aux_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch DMA_ports/Databus_OUT_from_DMA_aux_reg[7] cannot be properly analyzed as its control pin DMA_ports/Databus_OUT_from_DMA_aux_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch DMA_ports/FSM_sequential_s_DMA_next_state_reg[0] cannot be properly analyzed as its control pin DMA_ports/FSM_sequential_s_DMA_next_state_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch DMA_ports/FSM_sequential_s_DMA_next_state_reg[1] cannot be properly analyzed as its control pin DMA_ports/FSM_sequential_s_DMA_next_state_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch DMA_ports/FSM_sequential_s_DMA_next_state_reg[2] cannot be properly analyzed as its control pin DMA_ports/FSM_sequential_s_DMA_next_state_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch DMA_ports/FSM_sequential_s_DMA_next_state_reg[3] cannot be properly analyzed as its control pin DMA_ports/FSM_sequential_s_DMA_next_state_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#13 Warning
+Non-clocked latch  
+The latch DMA_ports/TX_Data_reg[0] cannot be properly analyzed as its control pin DMA_ports/TX_Data_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#14 Warning
+Non-clocked latch  
+The latch DMA_ports/TX_Data_reg[1] cannot be properly analyzed as its control pin DMA_ports/TX_Data_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#15 Warning
+Non-clocked latch  
+The latch DMA_ports/TX_Data_reg[2] cannot be properly analyzed as its control pin DMA_ports/TX_Data_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#16 Warning
+Non-clocked latch  
+The latch DMA_ports/TX_Data_reg[3] cannot be properly analyzed as its control pin DMA_ports/TX_Data_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#17 Warning
+Non-clocked latch  
+The latch DMA_ports/TX_Data_reg[4] cannot be properly analyzed as its control pin DMA_ports/TX_Data_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#18 Warning
+Non-clocked latch  
+The latch DMA_ports/TX_Data_reg[5] cannot be properly analyzed as its control pin DMA_ports/TX_Data_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#19 Warning
+Non-clocked latch  
+The latch DMA_ports/TX_Data_reg[6] cannot be properly analyzed as its control pin DMA_ports/TX_Data_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#20 Warning
+Non-clocked latch  
+The latch DMA_ports/TX_Data_reg[7] cannot be properly analyzed as its control pin DMA_ports/TX_Data_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#21 Warning
+Non-clocked latch  
+The latch DMA_ports/contador_aux_reg[0] cannot be properly analyzed as its control pin DMA_ports/contador_aux_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#22 Warning
+Non-clocked latch  
+The latch DMA_ports/contador_aux_reg[1] cannot be properly analyzed as its control pin DMA_ports/contador_aux_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#23 Warning
+Non-clocked latch  
+The latch DMA_ports/contador_aux_reg[2] cannot be properly analyzed as its control pin DMA_ports/contador_aux_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#24 Warning
+Non-clocked latch  
+The latch TX_Data_reg[7]_i_7 cannot be properly analyzed as its control pin TX_Data_reg[7]_i_7/G is not reached by a timing clock
+Related violations: <none>
+
+
