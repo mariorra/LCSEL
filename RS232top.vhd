@@ -119,7 +119,7 @@ begin  -- RTL
       Clk   => Clk,
       Reset => Reset,
       Start => StartTX,
-      Data  => Data_FF,
+      Data  => Data_in,
       EOT   => TX_RDY_i,
       TX    => TD);
 
@@ -154,6 +154,7 @@ begin  -- RTL
       empty => Empty);
 
   -- purpose: Clocking process for input protocol
+  --Data_FF<=Data_in;
   Clocking : process (Clk, Reset)
   begin
   
@@ -168,14 +169,21 @@ begin  -- RTL
 
        
       --ESTA TRANSICIOn hace que solo se use RX o TX
-      if Valid_D = '0' and TX_RDY_i = '1' then
-        -- TX
-        Data_FF <= Data_in;
+      if Valid_D = '0' then
+      StartTX <= '1';
+      -- TX
+      --Data_FF <= Data_in;
+      if TX_RDY_i = '1' then
         Ack_in  <= '0';
-        StartTX <= '1';
-      else
+      else 
+        Ack_in  <= '1';      
+      end if;
+
+      end if;
+      
+      if Valid_D = '1'  then
         -- RX
-        Ack_in  <= '1';
+        Ack_in  <= '0';
         StartTX <= '0';
       end if;
     end if;

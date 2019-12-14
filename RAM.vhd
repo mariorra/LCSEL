@@ -36,6 +36,10 @@ begin
     loop_reset: for aux in 0 to 63 loop -- 0 a 3F en HEX
                if aux =49 then --valor del termostato
                    contents_ram(aux) <= "00001010";
+               elsif aux = 4 then
+                    contents_ram(aux) <= "00111100";
+               elsif aux= 5 then
+                    contents_ram(aux) <= "11000011";    
                else
                     contents_ram(aux) <= "00000000";
                end if;

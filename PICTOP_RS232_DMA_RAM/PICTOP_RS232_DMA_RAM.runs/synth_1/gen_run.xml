@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1575911349">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1576089803">
   <File Type="PA-TCL" Name="PICtop.tcl"/>
   <File Type="REPORTS-TCL" Name="PICtop_reports.tcl"/>
   <File Type="RDS-RDS" Name="PICtop.vds"/>
-  <File Type="RDS-UTIL" Name="PICtop_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="PICtop_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="PICtop.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
@@ -85,7 +83,7 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="Clk_PIC_TOP"/>
   <BlockFileSet Type="BlockSrcs" Name="Clk_gen"/>
+  <BlockFileSet Type="BlockSrcs" Name="Clk_PIC_TOP"/>
   <BlockFileSet Type="BlockSrcs" Name="fifo"/>
 </GenRun>

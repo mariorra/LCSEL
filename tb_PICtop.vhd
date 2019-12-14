@@ -71,53 +71,47 @@ begin  -- TestBench
   Reset <= '0', '1' after 75 ns;
   
   --TB_U_DMA_ACK<='0';
-  
-  TB_U_Send_command <= '0';
+
+
   micro : process
   begin
+  
+  TB_U_Send_command <=  '0';
   prueba_tb <='0';
+  
     -- DMA SOLICITA BUS
+    --wait for 1 us;
     WAIT UNTIL  TB_U_DMA_RQ = '1' ;
     prueba_tb <='1';
-      IF TB_U_DMA_RQ = '1' THEN
---          wait for 1 us;
-            -- DMA RECIBE EL BUS
-          TB_U_DMA_ACK<='1';
-      END IF;
- -- wait for 1 us;
-  prueba_tb <='0';
+    IF TB_U_DMA_RQ = '1' THEN
+        wait for 1 us;
+        -- DMA RECIBE EL BUS
+        TB_U_DMA_ACK<='1';
+    END IF;
+    
+    wait for 1 us;
+    prueba_tb <='0';
+  
     -- DMA DEVUELVE BUS
+    
     WAIT UNTIL  TB_U_DMA_RQ = '0' ;
     prueba_tb <='1';
-      IF TB_U_DMA_RQ = '0' THEN
---          wait for 1 us;
-            -- A LA DMA SE LE RETIRA EL BUS
-          TB_U_DMA_ACK<='0';
+    IF TB_U_DMA_RQ = '0' THEN
+        wait for 1 us;
+        -- A LA DMA SE LE RETIRA EL BUS
+        TB_U_DMA_ACK<='0';
+        TB_U_Send_command <= '0';
       END IF;
-
-  end process micro;
+  
+  wait for 100 us;
+  prueba_tb <='0';
+end process micro;
    
   p_clk : PROCESS
   BEGIN
      clk <= '1', '0' after 5 ns;
      wait for 10 ns;
   END PROCESS p_clk;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 -------------------------------------------------------------------------------
