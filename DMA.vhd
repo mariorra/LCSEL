@@ -255,12 +255,12 @@ begin
                 END IF; 
 
             WHEN TX_FIN =>
-                --IF ACK_OUT_aux = '0'  THEN
+                iF ACK_OUT_aux = '0'  THEN
                     s_DMA_next_state<=IDLE;
 
-                --ELSE 
-                  --  s_DMA_next_state<=TX_FIN;
-                --END IF; 
+               ELSE 
+                   s_DMA_next_state<=TX_FIN;
+                END IF; 
                                
         end CASE;
   END PROCESS  STATES;
@@ -410,7 +410,8 @@ begin
                 DMA_RQ_aux<='1';
                
             WHEN TX_FIN =>
-                --DMA_RQ_aux<='0';
+                DMA_RQ_aux<='0';
+                --TX_Data <='1';
         end CASE;
   END PROCESS  OUTPUTS;
   

@@ -101,8 +101,9 @@ begin  -- TestBench
         TB_U_DMA_ACK<='0';
        -- TB_U_Send_command <= '0';
       END IF;
-  
-  --wait for 100 us;
+  if TB_U_Send_command='1' then
+  wait for 100 us;
+  end if;
   prueba_tb <='0';
 end process micro;
    
