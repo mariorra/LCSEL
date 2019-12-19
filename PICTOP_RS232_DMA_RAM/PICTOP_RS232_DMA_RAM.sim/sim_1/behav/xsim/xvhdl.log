@@ -1,4 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/DMA.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'DMA'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/tb_PICtop.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engineer/Documents/master/lcse/LCSEL/tb_PICtop.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'PICtop_tb'

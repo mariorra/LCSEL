@@ -223,7 +223,7 @@ begin
                     
                WHEN RX_FIN=> 
                    s_DMA_next_state <= idle;
-                    contador_aux<=0;            
+                    contador_aux<=4;            
             
             -----------------------------------------------------                  
             WHEN CONTROL_TX =>--and TX_Data_aux /= "ZZZZZZZZ"
@@ -265,7 +265,7 @@ begin
         end CASE;
   END PROCESS  STATES;
   
-   OUTPUTS: PROCESS (s_DMA_next_state,s_DMA_current_state,RX_empty_aux,Send_command_aux,DMA_ACK_aux,ACK_OUT_aux,TX_RDY_aux,RX_Full_aux,CICLO)
+   OUTPUTS: PROCESS (s_DMA_next_state,s_DMA_current_state,RX_empty_aux,Send_command_aux,DMA_ACK_aux,ACK_OUT_aux,TX_RDY_aux,RX_Full_aux,CICLO,contador)
     begin
         
             ------------DEFAULT-----------------
@@ -297,13 +297,19 @@ begin
         CASE s_DMA_current_state IS
             WHEN Idle =>
            
-               --  TX_Data <=Databus_IN_to_DMA_aux; 
-                if RX_empty_aux ='0' then --CUANDO EL DATO SE HAYA RECOGIDO 
-                    DMA_RQ_aux<='1'; -- SE SOLICITA EL BUS PARA PODER ESCRIBIRLO
+               -- SE SOLICITA EL BUS PARA PODER ESCRIBIRLO
+               
+               --CUANDO EL DATO SE HAYA RECOGIDO  la primera vez o tras recoger los bytes
+                   -- o mientras recibo los bytes
+                if RX_empty_aux ='0' or (contador>=0 and contador<=3 ) then 
+                    DMA_RQ_aux<='1'; 
+                     --mientras quiero enviar dato
                 elsif Send_command_aux ='1'   then
                     DMA_RQ_aux<='1';
-                else 
-                    DMA_RQ_aux<='0'; -- SE devuelve  EL BUS tras escritura
+                    
+                    --por defecto cuando tengo igual a 4 se devuelve 
+                    --elsif contador=4 then
+                  --  DMA_RQ_aux<='0'; -- SE devuelve  EL BUS tras escritura
                 END IF;
                 
                 if s_DMA_next_state = CONTROL_RX and RX_Full_aux ='0' then
@@ -360,7 +366,7 @@ begin
                     Write_en_aux <= '1';
                     Address_aux <= x"03";
                     Databus_OUT_from_DMA_aux<=x"FF";
-                    DMA_RQ_aux<='1';
+                    DMA_RQ_aux<='0';
 
                     -----LO ULTIMO 
                     --RESET_FIFO_aux<= '1';

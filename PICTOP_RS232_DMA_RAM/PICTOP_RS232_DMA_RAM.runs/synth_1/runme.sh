@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.runs/synth_1'
+HD_PWD='C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

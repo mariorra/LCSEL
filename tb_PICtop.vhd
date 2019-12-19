@@ -76,7 +76,7 @@ begin  -- TestBench
   micro : process
   begin
   
-  TB_U_Send_command <=  '0';
+  TB_U_Send_command <=  '1';
   prueba_tb <='0';
   
     -- DMA SOLICITA BUS
@@ -84,7 +84,7 @@ begin  -- TestBench
     WAIT UNTIL  TB_U_DMA_RQ = '1' ;
     prueba_tb <='1';
     IF TB_U_DMA_RQ = '1' THEN
-        wait for 1 us;
+        --wait for 1 us;
         -- DMA RECIBE EL BUS
         TB_U_DMA_ACK<='1';
     END IF;
@@ -97,13 +97,12 @@ begin  -- TestBench
     WAIT UNTIL  TB_U_DMA_RQ = '0' ;
     prueba_tb <='1';
     IF TB_U_DMA_RQ = '0' THEN
-        wait for 1 us;
         -- A LA DMA SE LE RETIRA EL BUS
         TB_U_DMA_ACK<='0';
-        TB_U_Send_command <= '0';
+       -- TB_U_Send_command <= '0';
       END IF;
   
-  wait for 100 us;
+  --wait for 100 us;
   prueba_tb <='0';
 end process micro;
    
