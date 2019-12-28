@@ -173,7 +173,7 @@ begin
                 -- SELECCION DE TX O RX
                 IF RX_empty_aux ='0' and Send_command_aux='0' THEN
                     s_DMA_next_state<=CONTROL_RX;
-                elsif Send_command_aux='1'   then 
+                elsif Send_command_aux='1' and DMA_ACK_aux = '1'  then 
                     s_DMA_next_state<=CONTROL_TX;
                 else 
                     s_DMA_next_state<=idle;
@@ -226,22 +226,22 @@ begin
                     contador_aux<=4;            
             
             -----------------------------------------------------                  
-            WHEN CONTROL_TX =>--and TX_Data_aux /= "ZZZZZZZZ"
-                IF ACK_OUT_aux = '0'  and  DMA_ACK_aux = '1' THEN
+            WHEN CONTROL_TX =>
+                IF ACK_OUT_aux = '0' and DMA_ACK_aux = '1' then 
                     s_DMA_next_state<=TRANSMISION_BYTE1;
                ELSE 
                     s_DMA_next_state<=CONTROL_TX;
                 END IF;
             
             WHEN TRANSMISION_BYTE1 =>
-                IF ACK_OUT_aux = '0'  THEN
+                IF ACK_OUT_aux = '0' THEN
                     s_DMA_next_state<=TRANSMISION_STATUS;
                 ELSE
                     s_DMA_next_state<=TRANSMISION_BYTE1;
                 END IF;
-            
+           
             WHEN TRANSMISION_STATUS =>
-                IF ACK_OUT_aux = '1'  THEN
+                IF ACK_OUT_aux = '0'  THEN
                     s_DMA_next_state<=TRANSMISION_BYTE2;
                 ELSE
                     s_DMA_next_state<=TRANSMISION_STATUS;
@@ -277,7 +277,7 @@ begin
             Valid_D_aux <='1';
             else
             --TX
-            Data_Read_aux <=  'Z';
+            Data_Read_aux <=  '0';
             RESET_FIFO_aux<= 'Z';
             TX_Data_aux <= (others => 'Z');
             Valid_D_aux <='0';
@@ -296,20 +296,17 @@ begin
          
         CASE s_DMA_current_state IS
             WHEN Idle =>
-           
+                Valid_D_aux <='Z';
                -- SE SOLICITA EL BUS PARA PODER ESCRIBIRLO
                
                --CUANDO EL DATO SE HAYA RECOGIDO  la primera vez o tras recoger los bytes
                    -- o mientras recibo los bytes
-                if RX_empty_aux ='0' or (contador>=0 and contador<=3 ) then 
+                if (RX_empty_aux ='0' or (contador>=0 and contador<=3 )) and Send_command_aux ='0' then 
                     DMA_RQ_aux<='1'; 
                      --mientras quiero enviar dato
                 elsif Send_command_aux ='1'   then
                     DMA_RQ_aux<='1';
-                    
-                    --por defecto cuando tengo igual a 4 se devuelve 
-                    --elsif contador=4 then
-                  --  DMA_RQ_aux<='0'; -- SE devuelve  EL BUS tras escritura
+
                 END IF;
                 
                 if s_DMA_next_state = CONTROL_RX and RX_Full_aux ='0' then
@@ -376,7 +373,7 @@ begin
   --#############################################
              WHEN CONTROL_TX =>
                 
-                TX_Data <=Databus_IN_to_DMA_aux;
+                --TX_Data <=Databus_IN_to_DMA_aux;
                 --Valid_D_aux <='0';
                 OE_aux<='0';
                 Address_aux <= x"04";
@@ -397,7 +394,7 @@ begin
                -- Databus_OUT_from_DMA_aux<= (others => 'Z');
                 READY_aux<='0';
                 DMA_RQ_aux<='1';
-                TX_Data <=Databus_IN_to_DMA_aux;
+                --TX_Data <=Databus_IN_to_DMA_aux;
                 OE_aux<='0';
                 Address_aux<=X"05";
                 
@@ -411,7 +408,10 @@ begin
                
             WHEN TX_FIN =>
                 DMA_RQ_aux<='0';
-                --TX_Data <='1';
+                if s_DMA_next_state = idle then
+                Valid_D_aux <='Z';
+                end if;
+                
         end CASE;
   END PROCESS  OUTPUTS;
   

@@ -31,7 +31,7 @@ architecture TestBench of PICtop_tb is
 -- Internal signals
 -----------------------------------------------------------------------------
 
-  signal Reset    : std_logic;
+  signal Reset    : std_logic:='0';
   signal Clk      : std_logic;
   signal RS232_RX : std_logic;
   signal RS232_TX : std_logic;
@@ -76,8 +76,11 @@ begin  -- TestBench
   micro : process
   begin
   
-  TB_U_Send_command <=  '1';
-  prueba_tb <='0';
+ -- TB_U_Send_command <= 'Z';
+    prueba_tb <='0';
+  wait for 1 us; --ARRANQUE DEL MODULO DEL RELOJ
+  TB_U_Send_command <=  'Z', '1' after 75 ns;
+
   
     -- DMA SOLICITA BUS
     --wait for 1 us;
@@ -101,10 +104,12 @@ begin  -- TestBench
         TB_U_DMA_ACK<='0';
        -- TB_U_Send_command <= '0';
       END IF;
-  if TB_U_Send_command='1' then
-  wait for 100 us;
-  end if;
+  --if TB_U_Send_command='1' then
+ -- wait for 100 us;
+ -- end if;
+  wait for 1 us;
   prueba_tb <='0';
+    wait for 300 us;
 end process micro;
    
   p_clk : PROCESS

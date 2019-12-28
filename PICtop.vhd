@@ -29,7 +29,7 @@ architecture behavioral of PICtop is
   component RS232top
     port (
       Reset     : in  std_logic;
-      Clk_TOP       : in  std_logic;
+      Clk       : in  std_logic;
       Data_in   : in  std_logic_vector(7 downto 0);
       Valid_D   : in  std_logic;
       Ack_in    : out std_logic;
@@ -135,7 +135,7 @@ begin  -- behavior
   RS232_PHY: RS232top
         port map (
             Reset     => Reset,
-            Clk_TOP       => Clk,
+            Clk       => Clk,
             Data_in   => Data_in_TO_RS_TX_TX_Data,
             Valid_D   => Valid_D_RS,
             Ack_in    => ACK_FROM_RS,

@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-// Date        : Sun Dec  8 14:24:01 2019
-// Host        : Engineer running 64-bit major release  (build 9200)
+// Tool Version: Vivado v.2019.2 (win64) Build 2700185 Thu Oct 24 18:46:05 MDT 2019
+// Date        : Sat Dec 28 17:31:09 2019
+// Host        : Engineer-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim
-//               c:/Users/Engenieer/Documents/LCSEL_git/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP_sim_netlist.v
+//               C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP_sim_netlist.v
 // Design      : Clk_PIC_TOP
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,22 +16,18 @@
 module Clk_PIC_TOP
    (clk_out1,
     reset,
-    locked,
     clk_in1);
   output clk_out1;
   input reset;
-  output locked;
   input clk_in1;
 
   (* IBUF_LOW_PWR *) wire clk_in1;
   wire clk_out1;
-  wire locked;
   wire reset;
 
   Clk_PIC_TOP_Clk_PIC_TOP_clk_wiz inst
        (.clk_in1(clk_in1),
         .clk_out1(clk_out1),
-        .locked(locked),
         .reset(reset));
 endmodule
 
@@ -39,11 +35,9 @@ endmodule
 module Clk_PIC_TOP_Clk_PIC_TOP_clk_wiz
    (clk_out1,
     reset,
-    locked,
     clk_in1);
   output clk_out1;
   input reset;
-  output locked;
   input clk_in1;
 
   wire clk_in1;
@@ -52,7 +46,6 @@ module Clk_PIC_TOP_Clk_PIC_TOP_clk_wiz
   wire clk_out1_Clk_PIC_TOP;
   wire clkfbout_Clk_PIC_TOP;
   wire clkfbout_buf_Clk_PIC_TOP;
-  wire locked;
   wire reset;
   wire NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED;
@@ -68,6 +61,7 @@ module Clk_PIC_TOP_Clk_PIC_TOP_clk_wiz
   wire NLW_mmcm_adv_inst_CLKOUT5_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKOUT6_UNCONNECTED;
   wire NLW_mmcm_adv_inst_DRDY_UNCONNECTED;
+  wire NLW_mmcm_adv_inst_LOCKED_UNCONNECTED;
   wire NLW_mmcm_adv_inst_PSDONE_UNCONNECTED;
   wire [15:0]NLW_mmcm_adv_inst_DO_UNCONNECTED;
 
@@ -165,7 +159,7 @@ module Clk_PIC_TOP_Clk_PIC_TOP_clk_wiz
         .DO(NLW_mmcm_adv_inst_DO_UNCONNECTED[15:0]),
         .DRDY(NLW_mmcm_adv_inst_DRDY_UNCONNECTED),
         .DWE(1'b0),
-        .LOCKED(locked),
+        .LOCKED(NLW_mmcm_adv_inst_LOCKED_UNCONNECTED),
         .PSCLK(1'b0),
         .PSDONE(NLW_mmcm_adv_inst_PSDONE_UNCONNECTED),
         .PSEN(1'b0),

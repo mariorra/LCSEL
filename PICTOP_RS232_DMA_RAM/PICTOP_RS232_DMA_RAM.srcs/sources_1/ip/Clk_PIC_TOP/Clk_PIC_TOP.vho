@@ -72,7 +72,6 @@ port
   clk_out1          : out    std_logic;
   -- Status and control signals
   reset             : in     std_logic;
-  locked            : out    std_logic;
   clk_in1           : in     std_logic
  );
 end component;
@@ -87,7 +86,6 @@ your_instance_name : Clk_PIC_TOP
    clk_out1 => clk_out1,
   -- Status and control signals                
    reset => reset,
-   locked => locked,
    -- Clock in ports
    clk_in1 => clk_in1
  );

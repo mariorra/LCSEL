@@ -43,11 +43,6 @@ read_vhdl -library xil_defaultlib {
   C:/Users/Engineer/Documents/master/lcse/LCSEL/TX_RS232/TX_RS232.srcs/sources_1/new/TX_RS232.vhd
   C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd
 }
-read_ip -quiet C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_gen/Clk_gen.xci
-set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_gen/Clk_gen_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_gen/Clk_gen.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_gen/Clk_gen_ooc.xdc]
-
 read_ip -quiet C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci
 set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo_ooc.xdc]

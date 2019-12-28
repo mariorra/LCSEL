@@ -13,13 +13,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="325000000fs"></ZoomStartTime>
-      <ZoomEndTime time="1075000001fs"></ZoomEndTime>
-      <Cursor1Time time="950000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="650000001fs"></ZoomEndTime>
+      <Cursor1Time time="650000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="195"></NameColumnWidth>
-      <ValueColumnWidth column_width="73"></ValueColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="14" />
    <wvobject type="divider" fp_name="divider376">
@@ -37,9 +37,9 @@
          <obj_property name="ElementShortName">Clk</obj_property>
          <obj_property name="ObjectShortName">Clk</obj_property>
       </wvobject>
-      <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/Clk_TOP" type="logic">
-         <obj_property name="ElementShortName">Clk_TOP</obj_property>
-         <obj_property name="ObjectShortName">Clk_TOP</obj_property>
+      <wvobject fp_name="/PICtop_tb/UUT/Clock_generator/clk_in1" type="logic">
+         <obj_property name="ElementShortName">clk_in1</obj_property>
+         <obj_property name="ObjectShortName">clk_in1</obj_property>
       </wvobject>
       <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/Code_out" type="logic">
          <obj_property name="ElementShortName">Code_out</obj_property>
@@ -133,6 +133,7 @@
    <wvobject fp_name="group411" type="group">
       <obj_property name="label">TX</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/Transmitter/Clk" type="logic">
          <obj_property name="ElementShortName">Clk</obj_property>
          <obj_property name="ObjectShortName">Clk</obj_property>
@@ -140,6 +141,14 @@
       <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/Transmitter/s_TX_current_state" type="other">
          <obj_property name="ElementShortName">s_TX_current_state</obj_property>
          <obj_property name="ObjectShortName">s_TX_current_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/Transmitter/s_TX_next_state" type="other">
+         <obj_property name="ElementShortName">s_TX_next_state</obj_property>
+         <obj_property name="ObjectShortName">s_TX_next_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/Transmitter/s_pulse_width" type="array">
+         <obj_property name="ElementShortName">s_pulse_width[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_pulse_width[7:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/Transmitter/Data" type="array">
          <obj_property name="ElementShortName">Data[7:0]</obj_property>
@@ -149,13 +158,13 @@
          <obj_property name="ElementShortName">EOT</obj_property>
          <obj_property name="ObjectShortName">EOT</obj_property>
       </wvobject>
-      <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/Transmitter/Start" type="logic">
-         <obj_property name="ElementShortName">Start</obj_property>
-         <obj_property name="ObjectShortName">Start</obj_property>
-      </wvobject>
       <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/TX_RDY" type="logic">
          <obj_property name="ElementShortName">TX_RDY</obj_property>
          <obj_property name="ObjectShortName">TX_RDY</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/Transmitter/Start" type="logic">
+         <obj_property name="ElementShortName">Start</obj_property>
+         <obj_property name="ObjectShortName">Start</obj_property>
       </wvobject>
       <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/Transmitter/TX" type="logic">
          <obj_property name="ElementShortName">TX</obj_property>
@@ -177,7 +186,6 @@
    <wvobject fp_name="group410" type="group">
       <obj_property name="label">RX</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/PICtop_tb/UUT/RS232_PHY/Receiver/Clk" type="logic">
          <obj_property name="ElementShortName">Clk</obj_property>
          <obj_property name="ObjectShortName">Clk</obj_property>
@@ -291,14 +299,21 @@
          <obj_property name="ElementShortName">Clk</obj_property>
          <obj_property name="ObjectShortName">Clk</obj_property>
       </wvobject>
+      <wvobject fp_name="/PICtop_tb/UUT/DMA_ports/Reset" type="logic">
+         <obj_property name="ElementShortName">Reset</obj_property>
+         <obj_property name="ObjectShortName">Reset</obj_property>
+      </wvobject>
       <wvobject fp_name="/PICtop_tb/UUT/DMA_ports/s_DMA_current_state" type="other">
          <obj_property name="ElementShortName">s_DMA_current_state</obj_property>
          <obj_property name="ObjectShortName">s_DMA_current_state</obj_property>
       </wvobject>
+      <wvobject fp_name="/PICtop_tb/UUT/DMA_ports/s_DMA_next_state" type="other">
+         <obj_property name="ElementShortName">s_DMA_next_state</obj_property>
+         <obj_property name="ObjectShortName">s_DMA_next_state</obj_property>
+      </wvobject>
       <wvobject fp_name="group452" type="group">
          <obj_property name="label">RX</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
          <wvobject fp_name="/PICtop_tb/UUT/DMA_ports/RCVD_Data" type="array">
             <obj_property name="ElementShortName">RCVD_Data[7:0]</obj_property>
             <obj_property name="ObjectShortName">RCVD_Data[7:0]</obj_property>
@@ -331,6 +346,7 @@
       <wvobject fp_name="group453" type="group">
          <obj_property name="label">TX</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
          <wvobject fp_name="/PICtop_tb/UUT/DMA_ports/TX_Data" type="array">
             <obj_property name="ElementShortName">TX_Data[7:0]</obj_property>
             <obj_property name="ObjectShortName">TX_Data[7:0]</obj_property>
@@ -429,7 +445,6 @@
       <wvobject fp_name="group1812" type="group">
          <obj_property name="label">RX</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
          <wvobject fp_name="/PICtop_tb/UUT/RAM_PORTS/contents_ram[0]" type="array">
             <obj_property name="ElementShortName">[0][7:0]</obj_property>
             <obj_property name="ObjectShortName">[0][7:0]</obj_property>
@@ -458,13 +473,14 @@
       <wvobject fp_name="group1818" type="group">
          <obj_property name="label">TX</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject fp_name="/PICtop_tb/UUT/RAM_PORTS/contents_ram[5]" type="array">
-            <obj_property name="ElementShortName">[5][7:0]</obj_property>
-            <obj_property name="ObjectShortName">[5][7:0]</obj_property>
-         </wvobject>
+         <obj_property name="isExpanded"></obj_property>
          <wvobject fp_name="/PICtop_tb/UUT/RAM_PORTS/contents_ram[4]" type="array">
             <obj_property name="ElementShortName">[4][7:0]</obj_property>
             <obj_property name="ObjectShortName">[4][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/PICtop_tb/UUT/RAM_PORTS/contents_ram[5]" type="array">
+            <obj_property name="ElementShortName">[5][7:0]</obj_property>
+            <obj_property name="ObjectShortName">[5][7:0]</obj_property>
          </wvobject>
       </wvobject>
       <wvobject fp_name="group1803" type="group">

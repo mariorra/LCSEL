@@ -131,7 +131,7 @@ architecture Behavioral of TX_RS232 is
       CASE s_TX_current_state IS
                
         WHEN Idle => -- dado que la transmision de datos comienza con el bit de start a nivel logico 1 se busca ese valor. 
-          if START = '1' and Reset='1' AND s_TX_data_aux/= "ZZZZZZZZ" THEN
+          if START = '1' and Reset='1' THEN --AND s_TX_data_aux/= "ZZZZZZZZ" THEN
             s_TX_next_state <= Start_Bit;
           else 
             s_TX_next_state <= Idle;
@@ -170,20 +170,26 @@ architecture Behavioral of TX_RS232 is
 
      EOT <= s_EOT_aux;
      TX <= s_TX_aux;          
-  OUTPUTS: process(Clk,s_TX_current_state,s_TX_dataCount,s_TX_data_aux,datacount_number)
+  OUTPUTS: process(Clk,s_TX_current_state,s_TX_next_state,s_TX_dataCount,s_TX_data_aux,datacount_number)
     begin
       CASE s_TX_current_state IS
                
         WHEN Idle =>
  
         s_TX_aux<='1';
+        --s_EOT_aux<='1';
+        --if s_TX_next_state = Start_bit then
+        --s_EOT_aux<='0';
+       -- else 
         s_EOT_aux<='1';
-        
+       -- end if;
+       
                     -----------------------------------------------------       
         
         WHEN Start_Bit =>
-          s_EOT_aux<='0';  
-          s_TX_aux<='0';
+       
+         s_TX_aux<='0';
+         s_EOT_aux<='0'; 
 
                     -----------------------------------------------------  
                 
@@ -195,8 +201,11 @@ architecture Behavioral of TX_RS232 is
                 
         WHEN Stop_Bit =>
         s_TX_aux<='1';
+        --if s_TX_next_state = idle then
+        --s_EOT_aux<='1';
+       --else
         s_EOT_aux<='0';
-  
+        --end if;
       end CASE;
   end process OUTPUTS;
 

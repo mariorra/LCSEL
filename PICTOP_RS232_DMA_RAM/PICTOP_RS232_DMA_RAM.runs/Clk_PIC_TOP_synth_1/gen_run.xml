@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="Clk_PIC_TOP_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1575811378">
+<GenRun Id="Clk_PIC_TOP_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1577550597">
   <File Type="PA-TCL" Name="Clk_PIC_TOP.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Clk_PIC_TOP_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Clk_PIC_TOP_reports.tcl"/>
   <File Type="RDS-RDS" Name="Clk_PIC_TOP.vds"/>
   <File Type="RDS-UTIL" Name="Clk_PIC_TOP_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="Clk_PIC_TOP_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="Clk_PIC_TOP.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Clk_PIC_TOP_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Clk_PIC_TOP_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Clk_PIC_TOP">
     <File Path="$PSRCDIR/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci">
       <FileInfo>

@@ -7,7 +7,7 @@ entity RS232top is
 
   port (
     Reset     : in  std_logic;   -- Low_level-active asynchronous reset
-    Clk_TOP : in  std_logic;   -- System clock (20MHz), rising edge used
+    Clk : in  std_logic;   -- System clock (20MHz), rising edge used
     Data_in   : in  std_logic_vector(7 downto 0);  -- Data to be sent
     Valid_D   : in  std_logic;   -- Handshake signal
                                  -- from guest system, low when data is valid
@@ -30,15 +30,15 @@ architecture RTL of RS232top is
   -- Component for Clock Frequency modification
   ------------------------------------------------------------------------
 
-  signal Clk, reset_p    : std_logic;
+  signal  reset_p    : std_logic;
 
-  component Clk_gen
-    port (
-      reset     : in  std_logic;
-      clk_in1   : in  std_logic;
-      clk_out1  : out  std_logic);
+  --component Clk_gen
+   -- port (
+   --   reset     : in  std_logic;
+   --   clk_in1   : in  std_logic;
+   --   clk_out1  : out  std_logic);
      -- locked    : out std_logic);
-  end component;
+  --end component;
   
  ------------------------------------------------------------------------
   -- Components for Transmitter Block
@@ -107,11 +107,11 @@ begin  -- RTL
 
   reset_p <= not(Reset);		  -- active high reset
   
-  Clock_generator : Clk_gen
-    port map (
-      reset    => reset_p,   
-      clk_in1  => Clk_TOP,
-      clk_out1 => Clk);
+  --Clock_generator : Clk_gen
+  --  port map (
+   --   reset    => reset_p,   
+   --   clk_in1  => Clk_TOP,
+   --   clk_out1 => Clk);
     --  locked   => open);
 
   Transmitter: TX_RS232
@@ -155,7 +155,7 @@ begin  -- RTL
 
   -- purpose: Clocking process for input protocol
   --Data_FF<=Data_in;
-  Clocking : process (Clk, Reset)
+  Clocking : process (Clk, Reset,Valid_D )
   begin
   
     if Reset = '0' then  -- asynchronous reset (active low)
@@ -164,29 +164,35 @@ begin  -- RTL
       Ack_in    <= '1';
       StartTX <= '0';
      
-    elsif Clk'event and Clk = '1' then 
+    elsif rising_edge(Clk) then 
       LineRD_in <= RD;
-
+    end if;
        
       --ESTA TRANSICIOn hace que solo se use RX o TX
       if Valid_D = '0' then
-      StartTX <= '1';
-      -- TX
-      --Data_FF <= Data_in;
-      if TX_RDY_i = '1' then
-        Ack_in  <= '0';
-      else 
-        Ack_in  <= '1';      
-      end if;
-
-      end if;
       
-      if Valid_D = '1'  then
+          -- TX
+          --Data_FF <= Data_in;
+          if TX_RDY_i = '1' then
+            Ack_in  <= '0';
+            StartTX <= '1';
+          else
+            Ack_in  <= '1'; 
+            StartTX <= '0';     
+          end if;
+
+     -- end if;
+      
+      elsif Valid_D = '1'  then
         -- RX
         Ack_in  <= '0';
         StartTX <= '0';
+      else
+      Ack_in  <= '1'; 
+      StartTX <= '0'; 
       end if;
-    end if;
+
+    --end if;
     
   end process Clocking;
 
