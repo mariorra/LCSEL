@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <Runs Version="1" Minor="0">
-	<Run Id="Clk_gen_synth_1" LaunchDir="C:/Users/Engenieer/Documents/LCSEL_git/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.runs/Clk_gen_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="fifo_synth_1" LaunchDir="C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.runs/fifo_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Clk_PIC_TOP_synth_1" LaunchDir="C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.runs/Clk_PIC_TOP_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="fifo_synth_1"/>
+		<Parent Id="Clk_PIC_TOP_synth_1"/>
+	</Run>
 	<Parameters>
 		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
 		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>

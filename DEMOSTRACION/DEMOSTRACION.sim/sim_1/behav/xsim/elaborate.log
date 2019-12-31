@@ -1,0 +1,38 @@
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto dcfdd1d53d484be69a4dd16fdff1e5ec --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_5 -L work -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot PICtop_tb_behav xil_defaultlib.PICtop_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package work.pic_pkg
+Compiling package xil_defaultlib.rs232_test
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.TX_RS232 [tx_rs232_default]
+Compiling architecture behavioral of entity xil_defaultlib.RX_RS232 [rx_rs232_default]
+Compiling architecture behavioral of entity xil_defaultlib.ShiftRegister [shiftregister_default]
+Compiling module fifo_generator_v13_2_5.fifo_generator_v13_2_5_bhv_ver_s...
+Compiling module fifo_generator_v13_2_5.fifo_generator_v13_2_5_CONV_VER(...
+Compiling module fifo_generator_v13_2_5.fifo_generator_vlog_beh(C_COMMON...
+Compiling module xil_defaultlib.fifo
+Compiling architecture rtl of entity xil_defaultlib.RS232top [rs232top_default]
+Compiling architecture behavioral of entity work.DMA [dma_default]
+Compiling architecture behavior of entity work.ram [ram_default]
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=8.5,C...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.Clk_PIC_TOP_clk_wiz
+Compiling module xil_defaultlib.Clk_PIC_TOP
+Compiling architecture behavioral of entity work.PICtop [pictop_default]
+Compiling architecture testbench of entity xil_defaultlib.pictop_tb
+Built simulation snapshot PICtop_tb_behav

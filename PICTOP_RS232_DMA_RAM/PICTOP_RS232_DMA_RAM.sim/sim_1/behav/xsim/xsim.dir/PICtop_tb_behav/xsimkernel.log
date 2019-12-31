@@ -1,7 +1,7 @@
-Running: xsim.dir/PICtop_tb_behav/xsimk.exe -simmode gui -wdb PICtop_tb_behav.wdb -simrunnum 0 -socket 54558
+Running: xsim.dir/PICtop_tb_behav/xsimk.exe -simmode gui -wdb PICtop_tb_behav.wdb -simrunnum 0 -socket 49982
 Design successfully loaded
-Design Loading Memory Usage: 8380 KB (Peak: 8380 KB)
-Design Loading CPU Usage: 30 ms
+Design Loading Memory Usage: 8472 KB (Peak: 8472 KB)
+Design Loading CPU Usage: 62 ms
 Simulation completed
-Simulation Memory Usage: 17980 KB (Peak: 17980 KB)
-Simulation CPU Usage: 4055 ms
+Simulation Memory Usage: 18108 KB (Peak: 18108 KB)
+Simulation CPU Usage: 8595 ms

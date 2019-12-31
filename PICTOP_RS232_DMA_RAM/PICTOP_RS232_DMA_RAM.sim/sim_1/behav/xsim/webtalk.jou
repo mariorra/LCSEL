@@ -2,8 +2,8 @@
 # Webtalk v2019.2 (64-bit)
 # SW Build 2700185 on Thu Oct 24 18:46:05 MDT 2019
 # IP Build 2699827 on Thu Oct 24 21:16:38 MDT 2019
-# Start of session at: Sat Dec 28 13:09:06 2019
-# Process ID: 10096
+# Start of session at: Sun Dec 29 20:03:00 2019
+# Process ID: 7380
 # Current directory: C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.sim/sim_1/behav/xsim
 # Command line: wbtcv.exe -mode batch -source C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.sim/sim_1/behav/xsim/xsim.dir/PICtop_tb_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.sim/sim_1/behav/xsim/webtalk.log

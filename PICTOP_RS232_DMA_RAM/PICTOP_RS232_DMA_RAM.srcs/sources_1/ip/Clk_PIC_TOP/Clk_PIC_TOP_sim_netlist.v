@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.2 (win64) Build 2700185 Thu Oct 24 18:46:05 MDT 2019
-// Date        : Sat Dec 28 17:31:09 2019
+// Date        : Sat Dec 28 20:58:28 2019
 // Host        : Engineer-PC running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode funcsim
-//               C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top Clk_PIC_TOP -prefix
+//               Clk_PIC_TOP_ Clk_PIC_TOP_sim_netlist.v
 // Design      : Clk_PIC_TOP
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -31,7 +31,6 @@ module Clk_PIC_TOP
         .reset(reset));
 endmodule
 
-(* ORIG_REF_NAME = "Clk_PIC_TOP_clk_wiz" *) 
 module Clk_PIC_TOP_Clk_PIC_TOP_clk_wiz
    (clk_out1,
     reset,

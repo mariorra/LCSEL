@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2700185 on Thu Oct 24 18:46:05 MDT 2019
 # IP Build 2699827 on Thu Oct 24 21:16:38 MDT 2019
-# Start of session at: Sat Dec 28 19:38:14 2019
-# Process ID: 5928
+# Start of session at: Sun Dec 29 20:43:23 2019
+# Process ID: 5364
 # Current directory: C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.runs/synth_1
 # Command line: vivado.exe -log PICtop.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source PICtop.tcl
 # Log file: C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.runs/synth_1/PICtop.vds

@@ -43,14 +43,14 @@ read_vhdl -library xil_defaultlib {
   C:/Users/Engineer/Documents/master/lcse/LCSEL/TX_RS232/TX_RS232.srcs/sources_1/new/TX_RS232.vhd
   C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd
 }
-read_ip -quiet C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci
-set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo_ooc.xdc]
-
 read_ip -quiet C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci
 set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP_ooc.xdc]
+
+read_ip -quiet C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci
+set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -60,6 +60,8 @@ set_property used_in_implementation false [get_files -all c:/Users/Engineer/Docu
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

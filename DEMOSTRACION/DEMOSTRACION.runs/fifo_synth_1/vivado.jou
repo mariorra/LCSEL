@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2700185 on Thu Oct 24 18:46:05 MDT 2019
+# IP Build 2699827 on Thu Oct 24 21:16:38 MDT 2019
+# Start of session at: Sun Dec 29 20:54:00 2019
+# Process ID: 6244
+# Current directory: C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/fifo_synth_1
+# Command line: vivado.exe -log fifo.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fifo.tcl
+# Log file: C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/fifo_synth_1/fifo.vds
+# Journal file: C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/fifo_synth_1\vivado.jou
+#-----------------------------------------------------------
+source fifo.tcl -notrace

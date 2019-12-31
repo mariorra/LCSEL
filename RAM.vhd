@@ -30,7 +30,7 @@ databus<=databus_out;
 -------------------------------------------------------------------------
 -- Memoria de propósito general
 -------------------------------------------------------------------------
-p_ram : process (clk,Reset)  -- no reset
+p_ram : process (clk,Reset,write_en)  -- no reset
 begin
   if(Reset = '0') then
     loop_reset: for aux in 0 to 63 loop -- 0 a 3F en HEX

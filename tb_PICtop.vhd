@@ -109,7 +109,7 @@ begin  -- TestBench
  -- end if;
   wait for 1 us;
   prueba_tb <='0';
-    wait for 300 us;
+    wait for 100 us;
 end process micro;
    
   p_clk : PROCESS

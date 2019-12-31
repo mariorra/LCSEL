@@ -125,13 +125,13 @@ architecture Behavioral of TX_RS232 is
      --genera los siguiente estados:
     
    
-  FSM: PROCESS(Clk,s_TX_current_state, s_pulse_width , s_TX_next_state, s_TX_data_aux )
+  FSM: PROCESS(Clk,s_TX_current_state, s_pulse_width , s_TX_next_state, s_TX_data_aux,START,Reset,s_TX_dataCount )
     begin
       s_TX_data_aux<=DATA;
       CASE s_TX_current_state IS
                
         WHEN Idle => -- dado que la transmision de datos comienza con el bit de start a nivel logico 1 se busca ese valor. 
-          if START = '1' and Reset='1' THEN --AND s_TX_data_aux/= "ZZZZZZZZ" THEN
+          if START = '1' and Reset='1' THEN
             s_TX_next_state <= Start_Bit;
           else 
             s_TX_next_state <= Idle;
@@ -141,8 +141,10 @@ architecture Behavioral of TX_RS232 is
         WHEN Start_Bit =>-- se busca los 87 click de reloj para muestrear el valor del dato que se debe enviar 
           if s_pulse_width =  Bitcounter then
            s_TX_next_state <= Send_Data;
-          else 
+          elsif s_pulse_width <  Bitcounter and START = '1' then
             s_TX_next_state <= Start_Bit;
+          elsif  START = 'Z' then
+            s_TX_next_state <= Idle;
           end if;
               -----------------------------------------------------      
 

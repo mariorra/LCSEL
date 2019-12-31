@@ -155,7 +155,7 @@ begin  -- RTL
 
   -- purpose: Clocking process for input protocol
   --Data_FF<=Data_in;
-  Clocking : process (Clk, Reset,Valid_D )
+  Clocking : process (Clk, Reset,Valid_D,TX_RDY_i )
   begin
   
     if Reset = '0' then  -- asynchronous reset (active low)
@@ -187,9 +187,10 @@ begin  -- RTL
         -- RX
         Ack_in  <= '0';
         StartTX <= '0';
-      else
-      Ack_in  <= '1'; 
-      StartTX <= '0'; 
+        
+      elsif Valid_D = 'Z' then 
+          Ack_in  <= '1'; 
+          StartTX <= 'Z'; 
       end if;
 
     --end if;

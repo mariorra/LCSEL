@@ -230,7 +230,7 @@ begin
                 IF ACK_OUT_aux = '0' and DMA_ACK_aux = '1' then 
                     s_DMA_next_state<=TRANSMISION_BYTE1;
                ELSE 
-                    s_DMA_next_state<=CONTROL_TX;
+                    s_DMA_next_state<=idle;
                 END IF;
             
             WHEN TRANSMISION_BYTE1 =>
@@ -241,7 +241,7 @@ begin
                 END IF;
            
             WHEN TRANSMISION_STATUS =>
-                IF ACK_OUT_aux = '0'  THEN
+                IF ACK_OUT_aux = '1'  THEN
                     s_DMA_next_state<=TRANSMISION_BYTE2;
                 ELSE
                     s_DMA_next_state<=TRANSMISION_STATUS;
@@ -255,7 +255,7 @@ begin
                 END IF; 
 
             WHEN TX_FIN =>
-                iF ACK_OUT_aux = '0'  THEN
+                iF ACK_OUT_aux = '1'  THEN
                     s_DMA_next_state<=IDLE;
 
                ELSE 
@@ -265,7 +265,7 @@ begin
         end CASE;
   END PROCESS  STATES;
   
-   OUTPUTS: PROCESS (s_DMA_next_state,s_DMA_current_state,RX_empty_aux,Send_command_aux,DMA_ACK_aux,ACK_OUT_aux,TX_RDY_aux,RX_Full_aux,CICLO,contador)
+   OUTPUTS: PROCESS (s_DMA_next_state,s_DMA_current_state,RX_empty_aux,Send_command_aux,DMA_ACK_aux,ACK_OUT_aux,TX_RDY_aux,RX_Full_aux,CICLO,contador,RCVD_Data_aux,RCVD_DATA,Databus_IN_to_DMA_aux)
     begin
         
             ------------DEFAULT-----------------
@@ -374,7 +374,7 @@ begin
              WHEN CONTROL_TX =>
                 
                 --TX_Data <=Databus_IN_to_DMA_aux;
-                --Valid_D_aux <='0';
+               -- Valid_D_aux <='Z';
                 OE_aux<='0';
                 Address_aux <= x"04";
                 READY_aux<='0';
@@ -390,7 +390,7 @@ begin
             
             WHEN TRANSMISION_STATUS =>
                 
-                --Valid_D_aux <= '0';
+               -- Valid_D_aux <='Z';
                -- Databus_OUT_from_DMA_aux<= (others => 'Z');
                 READY_aux<='0';
                 DMA_RQ_aux<='1';
@@ -408,9 +408,10 @@ begin
                
             WHEN TX_FIN =>
                 DMA_RQ_aux<='0';
-                if s_DMA_next_state = idle then
                 Valid_D_aux <='Z';
-                end if;
+                --if s_DMA_next_state = idle then
+                --Valid_D_aux <='Z';
+                --end if;
                 
         end CASE;
   END PROCESS  OUTPUTS;

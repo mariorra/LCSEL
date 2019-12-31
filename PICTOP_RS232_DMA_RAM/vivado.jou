@@ -1,0 +1,214 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2700185 on Thu Oct 24 18:46:05 MDT 2019
+# IP Build 2699827 on Thu Oct 24 21:16:38 MDT 2019
+# Start of session at: Sat Dec 28 20:56:16 2019
+# Process ID: 6880
+# Current directory: C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7540 C:\Users\Engineer\Documents\master\lcse\LCSEL\PICTOP_RS232_DMA_RAM\PICTOP_RS232_DMA_RAM.xpr
+# Log file: C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/vivado.log
+# Journal file: C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICtop_tb_behav.wcfg
+source PICtop_tb.tcl
+relaunch_sim
+delete_ip_run [get_files -of_objects [get_fileset fifo] C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci]
+set_property generate_synth_checkpoint false [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci]
+generate_target all [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci]
+export_ip_user_files -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci] -directory C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files -ipstatic_source_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/modelsim} {questa=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/questa} {riviera=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/riviera} {activehdl=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_compile_order -fileset sources_1
+delete_ip_run [get_files -of_objects [get_fileset Clk_PIC_TOP] C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+set_property generate_synth_checkpoint false [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+generate_target all [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+export_ip_user_files -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci] -directory C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files -ipstatic_source_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/modelsim} {questa=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/questa} {riviera=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/riviera} {activehdl=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_compile_order -fileset sources_1
+set_property generate_synth_checkpoint true [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci]
+generate_target all [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci]
+catch { config_ip_cache -export [get_ips -all fifo] }
+export_ip_user_files -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci]
+set_property generate_synth_checkpoint true [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+generate_target all [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+catch { config_ip_cache -export [get_ips -all Clk_PIC_TOP] }
+export_ip_user_files -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+close_sim
+launch_simulation
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_simulation
+open_wave_config C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICtop_tb_behav.wcfg
+source PICtop_tb.tcl
+set_property -dict [list CONFIG.USE_LOCKED {true}] [get_ips Clk_PIC_TOP]
+generate_target all [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+catch { config_ip_cache -export [get_ips -all Clk_PIC_TOP] }
+export_ip_user_files -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+launch_runs -jobs 4 Clk_PIC_TOP_synth_1
+wait_on_run Clk_PIC_TOP_synth_1
+export_simulation -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci] -directory C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files -ipstatic_source_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/modelsim} {questa=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/questa} {riviera=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/riviera} {activehdl=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+set_property -dict [list CONFIG.USE_LOCKED {false}] [get_ips Clk_PIC_TOP]
+generate_target all [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+catch { config_ip_cache -export [get_ips -all Clk_PIC_TOP] }
+catch { [ delete_ip_run [get_ips -all Clk_PIC_TOP] ] }
+export_ip_user_files -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+set_property -dict [list CONFIG.Performance_Options {First_Word_Fall_Through} CONFIG.Use_Extra_Logic {true} CONFIG.Data_Count_Width {5} CONFIG.Write_Data_Count_Width {5} CONFIG.Read_Data_Count_Width {5} CONFIG.Full_Threshold_Assert_Value {15} CONFIG.Full_Threshold_Negate_Value {14} CONFIG.Empty_Threshold_Assert_Value {4} CONFIG.Empty_Threshold_Negate_Value {5}] [get_ips fifo]
+generate_target all [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci]
+catch { config_ip_cache -export [get_ips -all fifo] }
+export_ip_user_files -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci]
+launch_runs -jobs 4 fifo_synth_1
+wait_on_run fifo_synth_1
+export_simulation -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci] -directory C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files -ipstatic_source_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/modelsim} {questa=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/questa} {riviera=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/riviera} {activehdl=C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+close_sim
+launch_simulation
+open_wave_config C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICtop_tb_behav.wcfg
+source PICtop_tb.tcl
+set_property -dict [list CONFIG.Performance_Options {Standard_FIFO} CONFIG.Use_Extra_Logic {false} CONFIG.Data_Count_Width {4} CONFIG.Write_Data_Count_Width {4} CONFIG.Read_Data_Count_Width {4} CONFIG.Full_Threshold_Assert_Value {14} CONFIG.Full_Threshold_Negate_Value {13} CONFIG.Empty_Threshold_Assert_Value {2} CONFIG.Empty_Threshold_Negate_Value {3}] [get_ips fifo]
+generate_target all [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci]
+catch { config_ip_cache -export [get_ips -all fifo] }
+catch { [ delete_ip_run [get_ips -all fifo] ] }
+export_ip_user_files -of_objects [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.srcs/sources_1/ip/fifo/fifo.xci]
+update_compile_order -fileset sources_1
+close_sim
+close_project
+create_project DEMOSTRACION C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION -part xc7a100tcsg324-1
+set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
+set_property target_language VHDL [current_project]
+add_files -norecurse C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICtop_tb_behav.wcfg
+add_files -norecurse {C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd C:/Users/Engineer/Documents/master/lcse/LCSEL/tb_PICtop.vhd C:/Users/Engineer/Documents/master/lcse/LCSEL/TX_RS232/TX_RS232.srcs/sources_1/new/TX_RS232.vhd C:/Users/Engineer/Documents/master/lcse/LCSEL/RAM.vhd C:/Users/Engineer/Documents/master/lcse/LCSEL/ShiftRegister/ShiftRegister/ShiftRegister.srcs/sources_1/new/ShiftRegister.vhd C:/Users/Engineer/Documents/master/lcse/LCSEL/RS232top.vhd C:/Users/Engineer/Documents/master/lcse/LCSEL/DMA.vhd C:/Users/Engineer/Documents/master/lcse/LCSEL/RS232_test.vhd C:/Users/Engineer/Documents/master/lcse/LCSEL/RX_RS232/RX_RS232.srcs/sources_1/new/RX_RS232.vhd}
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/tb_PICtop.vhd] -no_script -reset -force -quiet
+remove_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/tb_PICtop.vhd
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/Engineer/Documents/master/lcse/LCSEL/tb_PICtop.vhd
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+create_ip -name fifo_generator -vendor xilinx.com -library ip -version 13.2 -module_name fifo -dir c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip
+set_property -dict [list CONFIG.Component_Name {fifo} CONFIG.Input_Data_Width {8} CONFIG.Input_Depth {16} CONFIG.Output_Data_Width {8} CONFIG.Output_Depth {16} CONFIG.Data_Count_Width {4} CONFIG.Write_Data_Count_Width {4} CONFIG.Read_Data_Count_Width {4} CONFIG.Full_Threshold_Assert_Value {14} CONFIG.Full_Threshold_Negate_Value {13}] [get_ips fifo]
+generate_target {instantiation_template} [get_files c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/fifo/fifo.xci]
+update_compile_order -fileset sources_1
+generate_target all [get_files  c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/fifo/fifo.xci]
+catch { config_ip_cache -export [get_ips -all fifo] }
+export_ip_user_files -of_objects [get_files c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/fifo/fifo.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/fifo/fifo.xci]
+launch_runs -jobs 4 fifo_synth_1
+export_simulation -of_objects [get_files c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/fifo/fifo.xci] -directory C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.ip_user_files -ipstatic_source_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/modelsim} {questa=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/questa} {riviera=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/riviera} {activehdl=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+create_ip -name clk_wiz -vendor xilinx.com -library ip -version 6.0 -module_name Clk_PIC_TOP -dir c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip
+set_property -dict [list CONFIG.Component_Name {Clk_PIC_TOP} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {20} CONFIG.MMCM_CLKFBOUT_MULT_F {8.500} CONFIG.MMCM_CLKOUT0_DIVIDE_F {42.500} CONFIG.CLKOUT1_JITTER {193.154} CONFIG.CLKOUT1_PHASE_ERROR {109.126}] [get_ips Clk_PIC_TOP]
+generate_target {instantiation_template} [get_files c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+generate_target all [get_files  c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+catch { config_ip_cache -export [get_ips -all Clk_PIC_TOP] }
+export_ip_user_files -of_objects [get_files c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+launch_runs -jobs 4 Clk_PIC_TOP_synth_1
+export_simulation -of_objects [get_files c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci] -directory C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.ip_user_files -ipstatic_source_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/modelsim} {questa=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/questa} {riviera=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/riviera} {activehdl=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+export_ip_user_files -of_objects  [get_files c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci] -no_script -reset -force -quiet
+remove_files  -fileset Clk_PIC_TOP c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci
+file delete -force c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP
+create_ip -name clk_wiz -vendor xilinx.com -library ip -version 6.0 -module_name Clk_PIC_TOP -dir c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip
+set_property -dict [list CONFIG.Component_Name {Clk_PIC_TOP} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {20} CONFIG.USE_LOCKED {false} CONFIG.MMCM_CLKFBOUT_MULT_F {8.500} CONFIG.MMCM_CLKOUT0_DIVIDE_F {42.500} CONFIG.CLKOUT1_JITTER {193.154} CONFIG.CLKOUT1_PHASE_ERROR {109.126}] [get_ips Clk_PIC_TOP]
+generate_target {instantiation_template} [get_files c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+update_compile_order -fileset sources_1
+generate_target all [get_files  c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+catch { config_ip_cache -export [get_ips -all Clk_PIC_TOP] }
+export_ip_user_files -of_objects [get_files c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci]
+launch_runs -jobs 4 Clk_PIC_TOP_synth_1
+export_simulation -of_objects [get_files c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP.xci] -directory C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.ip_user_files -ipstatic_source_dir C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/modelsim} {questa=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/questa} {riviera=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/riviera} {activehdl=C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+set_property -name {xsim.simulate.runtime} -value {750us} -objects [get_filesets sim_1]
+set_property -name {xsim.simulate.log_all_signals} -value {true} -objects [get_filesets sim_1]
+set_property -name {xsim.simulate.no_quit} -value {true} -objects [get_filesets sim_1]
+set_property -name {xsim.simulate.saif_all_signals} -value {true} -objects [get_filesets sim_1]
+set_property -name {xsim.simulate.add_positional} -value {true} -objects [get_filesets sim_1]
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/Engineer/Documents/master/lcse/LCSEL/PIC_pkg.vhd
+update_compile_order -fileset sim_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+add_files -norecurse C:/Users/Engineer/Documents/master/lcse/LCSEL/PIC_pkg.vhd
+update_compile_order -fileset sources_1
+add_files -norecurse C:/Users/Engineer/Documents/master/lcse/LCSEL/PIC_pkg.vhd
+set_property library work [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/DMA.vhd]
+set_property library work [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/RAM.vhd]
+close_project
+open_project C:/Users/Engineer/Documents/master/lcse/LCSEL/PICTOP_RS232_DMA_RAM/PICTOP_RS232_DMA_RAM.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+set_property library work [get_files -of_objects [get_filesets sources_1] C:/Users/Engineer/Documents/master/lcse/LCSEL/PIC_pkg.vhd]
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+set_property library work [get_files  C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd]
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_simulation
+export_ip_user_files -of_objects  [get_files C:/Users/Engineer/Documents/master/lcse/LCSEL/PIC_pkg.vhd] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/Engineer/Documents/master/lcse/LCSEL/PIC_pkg.vhd
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_simulation
+source PICtop_tb.tcl
+relaunch_sim
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/PICtop_tb_behav.wcfg
+relaunch_sim
+close_sim
+launch_simulation
+open_wave_config C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/PICtop_tb_behav.wcfg
+source PICtop_tb.tcl
+relaunch_sim
+open_run synth_1 -name synth_1
+close_sim
+launch_simulation
+open_wave_config C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/PICtop_tb_behav.wcfg
+source PICtop_tb.tcl
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+close_sim
+launch_simulation
+open_wave_config C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/PICtop_tb_behav.wcfg
+source PICtop_tb.tcl
+relaunch_sim
+relaunch_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+set_property -name {xsim.simulate.runtime} -value {350us} -objects [get_filesets sim_1]
+close_sim
+refresh_design
