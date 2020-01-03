@@ -76,10 +76,10 @@ begin  -- TestBench
   micro : process
   begin
   
- -- TB_U_Send_command <= 'Z';
+    TB_U_Send_command <= '0';
     prueba_tb <='0';
-  wait for 1 us; --ARRANQUE DEL MODULO DEL RELOJ
-  TB_U_Send_command <=  'Z', '1' after 75 ns;
+ -- wait for 1 us; --ARRANQUE DEL MODULO DEL RELOJ
+  --TB_U_Send_command <=  'Z', '0' after 75 ns;
 
   
     -- DMA SOLICITA BUS
@@ -102,14 +102,14 @@ begin  -- TestBench
     IF TB_U_DMA_RQ = '0' THEN
         -- A LA DMA SE LE RETIRA EL BUS
         TB_U_DMA_ACK<='0';
-       -- TB_U_Send_command <= '0';
+       
       END IF;
-  --if TB_U_Send_command='1' then
- -- wait for 100 us;
- -- end if;
+
   wait for 1 us;
   prueba_tb <='0';
-    wait for 100 us;
+  if TB_U_Send_command='1' then
+  wait for 100 us;
+  end if;
 end process micro;
    
   p_clk : PROCESS
