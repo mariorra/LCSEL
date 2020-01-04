@@ -76,7 +76,7 @@ begin  -- TestBench
   micro : process
   begin
   
-    TB_U_Send_command <= '0';
+    TB_U_Send_command <= '1';
     prueba_tb <='0';
  -- wait for 1 us; --ARRANQUE DEL MODULO DEL RELOJ
   --TB_U_Send_command <=  'Z', '0' after 75 ns;
@@ -139,6 +139,13 @@ end process micro;
      Transmit(RS232_RX, X"55");
      wait for 40 us;
      Transmit(RS232_RX, X"BB");
+     wait for 40 us;
+     Transmit(RS232_RX, X"33");
+     wait for 40 us;
+     Transmit(RS232_RX, X"AB");
+     wait for 40 us;
+     Transmit(RS232_RX, X"43");
+     
      wait;
   end process SEND_STUFF;
    

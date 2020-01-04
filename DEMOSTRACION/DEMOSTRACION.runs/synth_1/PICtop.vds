@@ -2,24 +2,24 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2700185 on Thu Oct 24 18:46:05 MDT 2019
 # IP Build 2699827 on Thu Oct 24 21:16:38 MDT 2019
-# Start of session at: Fri Jan  3 11:55:52 2020
-# Process ID: 8748
+# Start of session at: Sat Jan  4 12:19:05 2020
+# Process ID: 6652
 # Current directory: C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1
 # Command line: vivado.exe -log PICtop.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source PICtop.tcl
 # Log file: C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1/PICtop.vds
 # Journal file: C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source PICtop.tcl -notrace
-create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 412.848 ; gain = 113.004
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:21 . Memory (MB): peak = 413.070 ; gain = 117.711
 Command: synth_design -top PICtop -part xc7a100tcsg324-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 3048 
+INFO: Helper process launched with PID 7724 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1213.527 ; gain = 237.898
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1213.371 ; gain = 237.785
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'PICtop' [C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd:27]
 INFO: [Synth 8-3491] module 'RS232top' declared at 'C:/Users/Engineer/Documents/master/lcse/LCSEL/RS232top.vhd:6' bound to instance 'RS232_PHY' of component 'RS232top' [C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd:135]
@@ -34,8 +34,8 @@ INFO: [Synth 8-256] done synthesizing module 'RX_RS232' (2#1) [C:/Users/Engineer
 INFO: [Synth 8-3491] module 'ShiftRegister' declared at 'C:/Users/Engineer/Documents/master/lcse/LCSEL/ShiftRegister/ShiftRegister/ShiftRegister.srcs/sources_1/new/ShiftRegister.vhd:33' bound to instance 'Shift' of component 'ShiftRegister' [C:/Users/Engineer/Documents/master/lcse/LCSEL/RS232top.vhd:135]
 INFO: [Synth 8-638] synthesizing module 'ShiftRegister' [C:/Users/Engineer/Documents/master/lcse/LCSEL/ShiftRegister/ShiftRegister/ShiftRegister.srcs/sources_1/new/ShiftRegister.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'ShiftRegister' (3#1) [C:/Users/Engineer/Documents/master/lcse/LCSEL/ShiftRegister/ShiftRegister/ShiftRegister.srcs/sources_1/new/ShiftRegister.vhd:41]
-INFO: [Synth 8-3491] module 'fifo' declared at 'C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1/.Xil/Vivado-8748-Engineer-PC/realtime/fifo_stub.vhdl:5' bound to instance 'Internal_memory' of component 'fifo' [C:/Users/Engineer/Documents/master/lcse/LCSEL/RS232top.vhd:145]
-INFO: [Synth 8-638] synthesizing module 'fifo' [C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1/.Xil/Vivado-8748-Engineer-PC/realtime/fifo_stub.vhdl:19]
+INFO: [Synth 8-3491] module 'fifo' declared at 'C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1/.Xil/Vivado-6652-Engineer-PC/realtime/fifo_stub.vhdl:5' bound to instance 'Internal_memory' of component 'fifo' [C:/Users/Engineer/Documents/master/lcse/LCSEL/RS232top.vhd:145]
+INFO: [Synth 8-638] synthesizing module 'fifo' [C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1/.Xil/Vivado-6652-Engineer-PC/realtime/fifo_stub.vhdl:19]
 INFO: [Synth 8-256] done synthesizing module 'RS232top' (4#1) [C:/Users/Engineer/Documents/master/lcse/LCSEL/RS232top.vhd:27]
 WARNING: [Synth 8-5640] Port 'cs' is missing in component declaration [C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd:56]
 INFO: [Synth 8-3491] module 'DMA' declared at 'C:/Users/Engineer/Documents/master/lcse/LCSEL/DMA.vhd:36' bound to instance 'DMA_ports' of component 'DMA' [C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd:153]
@@ -45,15 +45,15 @@ INFO: [Synth 8-256] done synthesizing module 'DMA' (5#1) [C:/Users/Engineer/Docu
 INFO: [Synth 8-3491] module 'ram' declared at 'C:/Users/Engineer/Documents/master/lcse/LCSEL/RAM.vhd:8' bound to instance 'RAM_PORTS' of component 'ram' [C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd:176]
 INFO: [Synth 8-638] synthesizing module 'ram' [C:/Users/Engineer/Documents/master/lcse/LCSEL/RAM.vhd:21]
 INFO: [Synth 8-256] done synthesizing module 'ram' (6#1) [C:/Users/Engineer/Documents/master/lcse/LCSEL/RAM.vhd:21]
-INFO: [Synth 8-3491] module 'Clk_PIC_TOP' declared at 'C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1/.Xil/Vivado-8748-Engineer-PC/realtime/Clk_PIC_TOP_stub.vhdl:5' bound to instance 'Clock_generator' of component 'Clk_PIC_TOP' [C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd:190]
-INFO: [Synth 8-638] synthesizing module 'Clk_PIC_TOP' [C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1/.Xil/Vivado-8748-Engineer-PC/realtime/Clk_PIC_TOP_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'Clk_PIC_TOP' declared at 'C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1/.Xil/Vivado-6652-Engineer-PC/realtime/Clk_PIC_TOP_stub.vhdl:5' bound to instance 'Clock_generator' of component 'Clk_PIC_TOP' [C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd:190]
+INFO: [Synth 8-638] synthesizing module 'Clk_PIC_TOP' [C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1/.Xil/Vivado-6652-Engineer-PC/realtime/Clk_PIC_TOP_stub.vhdl:14]
 WARNING: [Synth 8-3848] Net Disp in module/entity PICtop does not have driver. [C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd:18]
 INFO: [Synth 8-256] done synthesizing module 'PICtop' (7#1) [C:/Users/Engineer/Documents/master/lcse/LCSEL/PICtop.vhd:27]
 WARNING: [Synth 8-3331] design DMA has unconnected port TX_RDY
 WARNING: [Synth 8-3331] design PICtop has unconnected port Disp[1]
 WARNING: [Synth 8-3331] design PICtop has unconnected port Disp[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 1279.652 ; gain = 304.023
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1279.309 ; gain = 303.723
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -66,12 +66,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 1299.738 ; gain = 324.109
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1297.406 ; gain = 321.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 1299.738 ; gain = 324.109
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1297.406 ; gain = 321.820
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.105 . Memory (MB): peak = 1299.738 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.119 . Memory (MB): peak = 1297.406 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -82,20 +82,20 @@ Parsing XDC File [c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEM
 Finished Parsing XDC File [c:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.srcs/sources_1/ip/Clk_PIC_TOP/Clk_PIC_TOP/Clk_PIC_TOP_in_context.xdc] for cell 'Clock_generator'
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1418.773 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1415.703 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.486 . Memory (MB): peak = 1418.773 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.541 . Memory (MB): peak = 1415.703 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:34 . Memory (MB): peak = 1418.773 ; gain = 443.145
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1415.703 ; gain = 440.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:34 . Memory (MB): peak = 1418.773 ; gain = 443.145
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1415.703 ; gain = 440.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -105,7 +105,7 @@ Applied set_property CLOCK_BUFFER_TYPE = NONE for Clk100MHZ. (constraint file  c
 Applied set_property DONT_TOUCH = true for RS232_PHY/Internal_memory. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for Clock_generator. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:34 . Memory (MB): peak = 1418.773 ; gain = 443.145
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1415.703 ; gain = 440.117
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 's_RX_current_state_reg' in module 'RX_RS232'
 INFO: [Synth 8-802] inferred FSM for state register 's_DMA_current_state_reg' in module 'DMA'
@@ -155,7 +155,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_s_DMA_next_s
 WARNING: [Synth 8-327] inferring latch for variable 'contador_aux_reg' [C:/Users/Engineer/Documents/master/lcse/LCSEL/DMA.vhd:124]
 WARNING: [Synth 8-327] inferring latch for variable 'TX_Data_reg' [C:/Users/Engineer/Documents/master/lcse/LCSEL/DMA.vhd:150]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:40 . Memory (MB): peak = 1418.773 ; gain = 443.145
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:36 . Memory (MB): peak = 1415.703 ; gain = 440.117
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -293,68 +293,68 @@ Start Cross Boundary and Area Optimization
 Warning: Parallel synthesis criteria is not met 
 WARNING: [Synth 8-3331] design PICtop has unconnected port Disp[1]
 WARNING: [Synth 8-3331] design PICtop has unconnected port Disp[0]
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[3]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[4]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[5]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[6]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[7]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[8]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[9]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[10]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[11]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[12]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[13]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[14]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[15]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[16]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[17]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[18]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[19]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[20]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[21]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[22]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[23]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[24]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[25]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[26]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[27]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[28]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[29]' (LD) to 'DMA_ports/contador_aux_reg[31]'
 INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[30]' (LD) to 'DMA_ports/contador_aux_reg[31]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\DMA_ports/contador_aux_reg[31] )
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[3]' (FDC) to 'DMA_ports/contador_reg[4]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[4]' (FDC) to 'DMA_ports/contador_reg[5]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[5]' (FDC) to 'DMA_ports/contador_reg[6]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[6]' (FDC) to 'DMA_ports/contador_reg[7]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[7]' (FDC) to 'DMA_ports/contador_reg[8]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[8]' (FDC) to 'DMA_ports/contador_reg[9]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[9]' (FDC) to 'DMA_ports/contador_reg[10]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[10]' (FDC) to 'DMA_ports/contador_reg[11]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[11]' (FDC) to 'DMA_ports/contador_reg[12]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[12]' (FDC) to 'DMA_ports/contador_reg[13]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[13]' (FDC) to 'DMA_ports/contador_reg[14]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[14]' (FDC) to 'DMA_ports/contador_reg[15]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[15]' (FDC) to 'DMA_ports/contador_reg[16]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[16]' (FDC) to 'DMA_ports/contador_reg[17]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[17]' (FDC) to 'DMA_ports/contador_reg[18]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[18]' (FDC) to 'DMA_ports/contador_reg[19]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[19]' (FDC) to 'DMA_ports/contador_reg[20]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[20]' (FDC) to 'DMA_ports/contador_reg[21]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[21]' (FDC) to 'DMA_ports/contador_reg[22]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[22]' (FDC) to 'DMA_ports/contador_reg[23]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[23]' (FDC) to 'DMA_ports/contador_reg[24]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[24]' (FDC) to 'DMA_ports/contador_reg[25]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[25]' (FDC) to 'DMA_ports/contador_reg[26]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[26]' (FDC) to 'DMA_ports/contador_reg[27]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[27]' (FDC) to 'DMA_ports/contador_reg[28]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[28]' (FDC) to 'DMA_ports/contador_reg[29]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[29]' (FDC) to 'DMA_ports/contador_reg[30]'
-INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[30]' (FDC) to 'DMA_ports/contador_reg[31]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[31]' (LD) to 'DMA_ports/contador_aux_reg[29]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[29]' (LD) to 'DMA_ports/contador_aux_reg[28]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[28]' (LD) to 'DMA_ports/contador_aux_reg[27]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[27]' (LD) to 'DMA_ports/contador_aux_reg[26]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[26]' (LD) to 'DMA_ports/contador_aux_reg[25]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[25]' (LD) to 'DMA_ports/contador_aux_reg[24]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[24]' (LD) to 'DMA_ports/contador_aux_reg[23]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[23]' (LD) to 'DMA_ports/contador_aux_reg[22]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[22]' (LD) to 'DMA_ports/contador_aux_reg[21]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[21]' (LD) to 'DMA_ports/contador_aux_reg[20]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[20]' (LD) to 'DMA_ports/contador_aux_reg[19]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[19]' (LD) to 'DMA_ports/contador_aux_reg[18]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[18]' (LD) to 'DMA_ports/contador_aux_reg[17]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[17]' (LD) to 'DMA_ports/contador_aux_reg[16]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[16]' (LD) to 'DMA_ports/contador_aux_reg[15]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[15]' (LD) to 'DMA_ports/contador_aux_reg[14]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[14]' (LD) to 'DMA_ports/contador_aux_reg[13]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[13]' (LD) to 'DMA_ports/contador_aux_reg[12]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[12]' (LD) to 'DMA_ports/contador_aux_reg[11]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[11]' (LD) to 'DMA_ports/contador_aux_reg[10]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[10]' (LD) to 'DMA_ports/contador_aux_reg[9]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[9]' (LD) to 'DMA_ports/contador_aux_reg[8]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[8]' (LD) to 'DMA_ports/contador_aux_reg[7]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[7]' (LD) to 'DMA_ports/contador_aux_reg[6]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[6]' (LD) to 'DMA_ports/contador_aux_reg[5]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[5]' (LD) to 'DMA_ports/contador_aux_reg[4]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_aux_reg[4]' (LD) to 'DMA_ports/contador_aux_reg[3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\DMA_ports/contador_aux_reg[3] )
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[30]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[31]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[29]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[28]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[27]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[26]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[25]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[24]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[23]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[22]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[21]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[20]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[19]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[18]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[17]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[16]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[15]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[14]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[13]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[12]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[11]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[10]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[9]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[8]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[7]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[6]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[5]' (FDC) to 'DMA_ports/contador_reg[3]'
+INFO: [Synth 8-3886] merging instance 'DMA_ports/contador_reg[4]' (FDC) to 'DMA_ports/contador_reg[3]'
 WARNING: [Synth 8-3332] Sequential element (RS232_PHY/Transmitter/s_TX_next_state_reg[1]) is unused and will be removed from module PICtop.
 WARNING: [Synth 8-3332] Sequential element (RS232_PHY/Transmitter/s_TX_next_state_reg[0]) is unused and will be removed from module PICtop.
-WARNING: [Synth 8-3332] Sequential element (DMA_ports/contador_aux_reg[31]) is unused and will be removed from module PICtop.
+WARNING: [Synth 8-3332] Sequential element (DMA_ports/contador_aux_reg[3]) is unused and will be removed from module PICtop.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:49 ; elapsed = 00:01:02 . Memory (MB): peak = 1418.773 ; gain = 443.145
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:58 . Memory (MB): peak = 1415.703 ; gain = 440.117
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -366,13 +366,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:01:15 . Memory (MB): peak = 1418.773 ; gain = 443.145
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:59 ; elapsed = 00:01:12 . Memory (MB): peak = 1415.703 ; gain = 440.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:15 ; elapsed = 00:01:29 . Memory (MB): peak = 1560.020 ; gain = 584.391
+Finished Timing Optimization : Time (s): cpu = 00:01:13 ; elapsed = 00:01:25 . Memory (MB): peak = 1560.895 ; gain = 585.309
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -384,7 +384,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:18 ; elapsed = 00:01:32 . Memory (MB): peak = 1561.031 ; gain = 585.402
+Finished Technology Mapping : Time (s): cpu = 00:01:16 ; elapsed = 00:01:28 . Memory (MB): peak = 1561.906 ; gain = 586.320
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -408,13 +408,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:25 ; elapsed = 00:01:39 . Memory (MB): peak = 1561.031 ; gain = 585.402
+Finished IO Insertion : Time (s): cpu = 00:01:23 ; elapsed = 00:01:36 . Memory (MB): peak = 1561.906 ; gain = 586.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:25 ; elapsed = 00:01:39 . Memory (MB): peak = 1561.031 ; gain = 585.402
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:23 ; elapsed = 00:01:36 . Memory (MB): peak = 1561.906 ; gain = 586.320
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -449,25 +449,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:26 ; elapsed = 00:01:39 . Memory (MB): peak = 1561.031 ; gain = 585.402
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:24 ; elapsed = 00:01:36 . Memory (MB): peak = 1561.906 ; gain = 586.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:26 ; elapsed = 00:01:40 . Memory (MB): peak = 1561.031 ; gain = 585.402
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:24 ; elapsed = 00:01:36 . Memory (MB): peak = 1561.906 ; gain = 586.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:26 ; elapsed = 00:01:40 . Memory (MB): peak = 1561.031 ; gain = 585.402
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:24 ; elapsed = 00:01:36 . Memory (MB): peak = 1561.906 ; gain = 586.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:26 ; elapsed = 00:01:40 . Memory (MB): peak = 1561.031 ; gain = 585.402
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:24 ; elapsed = 00:01:36 . Memory (MB): peak = 1561.906 ; gain = 586.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -488,12 +488,12 @@ Report Cell Usage:
 |1     |Clk_PIC_TOP_bbox_1 |     1|
 |2     |fifo_bbox_0        |     1|
 |3     |CARRY4             |    14|
-|4     |LUT1               |     5|
+|4     |LUT1               |     4|
 |5     |LUT2               |   137|
 |6     |LUT3               |    31|
-|7     |LUT4               |    81|
+|7     |LUT4               |    82|
 |8     |LUT5               |    54|
-|9     |LUT6               |   855|
+|9     |LUT6               |   854|
 |10    |MUXF7              |   272|
 |11    |MUXF8              |   136|
 |12    |FDCE               |   583|
@@ -509,8 +509,8 @@ Report Instance Areas:
 +------+----------------+--------------+------+
 |      |Instance        |Module        |Cells |
 +------+----------------+--------------+------+
-|1     |top             |              |  3765|
-|2     |  DMA_ports     |DMA           |   488|
+|1     |top             |              |  3764|
+|2     |  DMA_ports     |DMA           |   487|
 |3     |  RAM_PORTS     |ram           |  3008|
 |4     |  RS232_PHY     |RS232top      |   244|
 |5     |    Receiver    |RX_RS232      |    45|
@@ -518,18 +518,18 @@ Report Instance Areas:
 |7     |    Transmitter |TX_RS232      |   150|
 +------+----------------+--------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:26 ; elapsed = 00:01:40 . Memory (MB): peak = 1561.031 ; gain = 585.402
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:24 ; elapsed = 00:01:36 . Memory (MB): peak = 1561.906 ; gain = 586.320
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 16 critical warnings and 11 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:10 ; elapsed = 00:01:30 . Memory (MB): peak = 1561.031 ; gain = 466.367
-Synthesis Optimization Complete : Time (s): cpu = 00:01:26 ; elapsed = 00:01:40 . Memory (MB): peak = 1561.031 ; gain = 585.402
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:08 ; elapsed = 00:01:25 . Memory (MB): peak = 1561.906 ; gain = 468.023
+Synthesis Optimization Complete : Time (s): cpu = 00:01:24 ; elapsed = 00:01:37 . Memory (MB): peak = 1561.906 ; gain = 586.320
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.098 . Memory (MB): peak = 1572.910 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.103 . Memory (MB): peak = 1573.785 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 437 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1572.910 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1573.785 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 15 instances were transformed.
   LD => LDCE: 15 instances
@@ -537,10 +537,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 109 Infos, 18 Warnings, 16 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:38 ; elapsed = 00:02:03 . Memory (MB): peak = 1572.910 ; gain = 879.117
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1572.910 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:35 ; elapsed = 00:02:05 . Memory (MB): peak = 1573.785 ; gain = 877.215
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1573.785 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Engineer/Documents/master/lcse/LCSEL/DEMOSTRACION/DEMOSTRACION.runs/synth_1/PICtop.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file PICtop_utilization_synth.rpt -pb PICtop_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Jan  3 11:59:14 2020...
+INFO: [Common 17-206] Exiting Vivado at Sat Jan  4 12:22:20 2020...

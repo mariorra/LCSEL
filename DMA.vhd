@@ -171,20 +171,20 @@ begin
         CASE s_DMA_current_state IS
             WHEN Idle =>
                 -- SELECCION DE TX O RX
-                IF RX_empty_aux ='0' and Send_command_aux='0' THEN
+                IF (RX_empty_aux ='0' and Send_command_aux='0' )or contador = 4 THEN
                     s_DMA_next_state<=CONTROL_RX;
                 elsif Send_command_aux='1' and DMA_ACK_aux = '1'  then 
                     s_DMA_next_state<=CONTROL_TX;
                 else 
                     s_DMA_next_state<=idle;
                 END IF;
-               
+                 if contador = 4 then
+                contador_aux<=0;
+                end if;
 
             -----------------------------------------------------  
             WHEN CONTROL_RX =>
-                if contador = 4 then
-                contador_aux<=0;
-                end if;
+              
             
                 --IF RX_empty_aux ='0'
                 IF DMA_ACK_aux = '1' AND contador=0  THEN
@@ -309,9 +309,13 @@ begin
 
                 END IF;
                 
-                if s_DMA_next_state = CONTROL_RX and RX_Full_aux ='0' then
-                Data_Read_aux <= '1';
+                if contador =4 then
+                    DMA_RQ_aux<='1'; 
                 end if;
+                
+                --if s_DMA_next_state = CONTROL_RX and RX_Full_aux ='0' then
+                --Data_Read_aux <= '1';
+                --end if;
 
                 if RX_Full_aux ='1' then--and RX_empty_aux ='0'then
                     RESET_FIFO_aux<= '1';
@@ -322,7 +326,8 @@ begin
   --#############################################
 
             WHEN CONTROL_RX =>
-                
+                    
+                    Data_Read_aux <= '1';
                     Write_en_aux <= '0'; --no escribe en ram solo solicita el dato. 
                     DMA_RQ_aux<='1';
                     --devolucion<='1';
@@ -363,7 +368,7 @@ begin
                     Write_en_aux <= '1';
                     Address_aux <= x"03";
                     Databus_OUT_from_DMA_aux<=x"FF";
-                    DMA_RQ_aux<='0';
+                    DMA_RQ_aux<='1';
 
                     -----LO ULTIMO 
                     --RESET_FIFO_aux<= '1';
