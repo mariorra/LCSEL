@@ -76,7 +76,7 @@ begin  -- TestBench
   micro : process
   begin
   
-    TB_U_Send_command <= '1';
+    TB_U_Send_command <= '0';
     prueba_tb <='0';
  -- wait for 1 us; --ARRANQUE DEL MODULO DEL RELOJ
   --TB_U_Send_command <=  'Z', '0' after 75 ns;

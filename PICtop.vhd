@@ -69,6 +69,7 @@ architecture behavioral of PICtop is
             Address : out std_logic_vector(7 downto 0);
             Databus : inout std_logic_vector(7 downto 0);
             Write_en : out std_logic;
+            CS : out std_logic;
             OE : out std_logic;
             DMA_RQ : out std_logic;
             DMA_ACK : in std_logic;

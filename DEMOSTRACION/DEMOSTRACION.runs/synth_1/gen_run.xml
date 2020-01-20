@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1578136740">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1579535244">
   <File Type="PA-TCL" Name="PICtop.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="PICtop_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="PICtop_reports.tcl"/>

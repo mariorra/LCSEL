@@ -116,9 +116,11 @@ architecture Behavioral of DMA is
 begin
   RELOJ: PROCESS (Reset, Clk)
     begin
+    --contador_aux<=0;
       if(Reset = '0') then
       s_DMA_current_state <= idle;
       contador<=0;
+      --contador_aux<=0;
      elsif rising_edge(Clk) then 
       s_DMA_current_state <=  s_DMA_next_state;  
       contador<=contador_aux;
@@ -165,9 +167,13 @@ begin
     --OUTPUTS
     DMA_RQ<= DMA_RQ_aux;
     READY<=READY_aux;
+    
   
-  STATES: PROCESS (s_DMA_current_state,RX_empty_aux,Send_command_aux,DMA_ACK_aux,contador,contador_aux,ACK_OUT_aux,TX_Data_aux)
+  
+  STATES: PROCESS (s_DMA_current_state,s_DMA_next_state,RX_empty_aux,Send_command_aux,DMA_ACK_aux,contador,contador_aux,ACK_OUT_aux,TX_Data_aux)
     begin
+    s_DMA_next_state<=idle;
+    contador_aux<=contador;
         CASE s_DMA_current_state IS
             WHEN Idle =>
                 -- SELECCION DE TX O RX
@@ -267,7 +273,7 @@ begin
   
    OUTPUTS: PROCESS (s_DMA_next_state,s_DMA_current_state,RX_empty_aux,Send_command_aux,DMA_ACK_aux,ACK_OUT_aux,TX_RDY_aux,RX_Full_aux,CICLO,contador,RCVD_Data_aux,RCVD_DATA,Databus_IN_to_DMA_aux)
     begin
-        
+        TX_Data <= (others => 'Z');
             ------------DEFAULT-----------------
             if Send_command_aux='0' then
             --RX
