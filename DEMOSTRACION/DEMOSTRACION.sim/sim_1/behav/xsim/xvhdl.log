@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engineer/Documents/master/lcse/LCSEL/DMA.vhd" into library work
-INFO: [VRFC 10-3107] analyzing entity 'DMA'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Engineer/Documents/master/lcse/LCSEL/TX_RS232/TX_RS232.srcs/sources_1/new/TX_RS232.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'TX_RS232'

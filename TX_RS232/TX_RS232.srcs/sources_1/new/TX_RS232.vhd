@@ -84,6 +84,7 @@ architecture Behavioral of TX_RS232 is
   -- identificar el estado actual conforme a las entradas y salidas
   RELOJ: PROCESS (Reset, Clk, s_TX_current_state, s_TX_next_state,s_pulse_width,s_TX_aux,s_EOT_aux)
     begin
+   
       if(Reset = '0') then
         --se resetean las variables para tener los datos inicializados a 0
         s_TX_current_state <= Idle;
@@ -128,7 +129,8 @@ architecture Behavioral of TX_RS232 is
   FSM: PROCESS(Clk,s_TX_current_state, s_pulse_width , s_TX_next_state, s_TX_data_aux,START,Reset,s_TX_dataCount, Data )
     begin
       s_TX_data_aux<=DATA;
-      s_TX_next_state<=idle;
+       s_TX_next_state<=s_TX_current_state;
+      --s_TX_next_state<=idle;
       CASE s_TX_current_state IS
                
         WHEN Idle => -- dado que la transmision de datos comienza con el bit de start a nivel logico 1 se busca ese valor. 
